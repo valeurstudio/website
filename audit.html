@@ -155,12 +155,28 @@
           </div>
 
           <div class="form-group">
+            <label class="form-label" for="name">Your name <span class="required">*</span></label>
+            <input class="form-input" id="name" name="name" type="text" required placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Your email <span class="required">*</span></label>
+            <input class="form-input" id="email" name="email" type="email" required placeholder="you@example.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone number <span class="optional-label">(Optional)</span></label>
+            <input class="form-input" id="phone" name="phone" type="tel" placeholder="Your phone number">
+          </div>
+
+          <div class="form-group">
             <label class="form-label" for="notes">Anything else we should know? <span class="optional-label">(Optional)</span></label>
             <textarea class="form-input form-textarea" id="notes" name="notes" rows="4" placeholder="Any specific concerns, goals, or context that would help us give you a better audit."></textarea>
           </div>
 
           <div>
-            <button type="submit" class="btn btn-primary form-submit">Run My Audit →</button>
+            <button type="submit" class="btn btn-primary form-submit" id="auditSubmit">Run My Audit →</button>
+            <p class="form-error-msg" id="auditError" style="display:none; font-size:13px; color:#B44; margin-top:10px; line-height:1.5;"></p>
             <p class="form-trust">Free to run. No account needed. Results shown immediately.</p>
           </div>
 
@@ -225,10 +241,62 @@
         });
       });
 
-      // Form submit — redirect to results (no backend yet)
-      document.getElementById('auditForm').addEventListener('submit', function (e) {
+      // Form submit
+      var form = document.getElementById('auditForm');
+      var submitBtn = document.getElementById('auditSubmit');
+      var errorMsg = document.getElementById('auditError');
+
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-        window.location.href = '/audit-results';
+        errorMsg.style.display = 'none';
+
+        var data = {
+          url: document.getElementById('url').value.trim(),
+          businessName: document.getElementById('businessName').value.trim(),
+          businessType: document.getElementById('businessType').value,
+          whatTheySell: document.getElementById('whatTheySell').value.trim(),
+          targetCustomer: document.getElementById('targetCustomer').value.trim(),
+          mainGoal: document.getElementById('mainGoal').value,
+          name: document.getElementById('name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          notes: document.getElementById('notes').value.trim(),
+        };
+
+        // Client-side required field check
+        if (!data.url || !data.businessName || !data.businessType || !data.whatTheySell || !data.targetCustomer || !data.mainGoal || !data.name || !data.email) {
+          errorMsg.textContent = 'Please fill in all required fields before submitting.';
+          errorMsg.style.display = 'block';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending\u2026';
+
+        fetch('/api/audit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        })
+          .then(function (res) {
+            return res.json().then(function (body) { return { ok: res.ok, body: body }; });
+          })
+          .then(function (result) {
+            if (result.ok) {
+              window.location.href = '/audit-results';
+            } else {
+              errorMsg.textContent = result.body.details || 'Something went wrong. Please try again.';
+              errorMsg.style.display = 'block';
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Run My Audit \u2192';
+            }
+          })
+          .catch(function () {
+            errorMsg.textContent = 'Something went wrong. Please try again or email us at contact.studionorthcreative@gmail.com';
+            errorMsg.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Run My Audit \u2192';
+          });
       });
     })();
   </script>
