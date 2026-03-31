@@ -453,6 +453,29 @@ ul {
   margin: 0 auto var(--gap-lg);
 }
 
+/* --- Audit Entry --- */
+.audit-entry {
+  padding: var(--section-lg) 0;
+  background: var(--surface-light);
+}
+
+.audit-entry-content {
+  text-align: center;
+}
+
+.audit-entry-headline {
+  max-width: 580px;
+  margin: 0 auto var(--gap-md);
+}
+
+.audit-entry-body {
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
+  color: var(--neutral-600);
+  max-width: 460px;
+  margin: 0 auto var(--gap-lg);
+}
+
 /* --- Work --- */
 .work {
   padding: var(--section-lg) 0;
