@@ -626,6 +626,7 @@
       var displayUrl = audit.url.replace(/^https?:\/\//, '');
       var fixCount = audit.priorityFixes ? audit.priorityFixes.length : 0;
       var strengthCount = audit.strengths ? audit.strengths.length : 0;
+      document.querySelector('.report-badge-sample').style.display = 'none';
 
       // Header
       document.getElementById('r-site-name').textContent = displayUrl;
