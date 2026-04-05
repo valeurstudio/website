@@ -334,14 +334,14 @@
       <a href="/" class="nav-logo">STUDIONORTH</a>
       <div class="nav-links" id="navLinks">
         <a href="/">Home</a>
-        <a href="/#work">Work</a>
+        <a href="/work/">Work</a>
         <a href="/#services">Services</a>
         <a href="/#process">Process</a>
-        <a href="/#about">About</a>
+        <a href="/about/">About</a>
         <a href="/#faq">FAQ</a>
         <a href="/audit">Website Audit</a>
       </div>
-      <a href="/#contact" class="btn btn-primary nav-cta">Start a Project</a>
+      <button type="button" class="btn btn-primary nav-cta open-contact-modal">Start a Project</button>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -353,13 +353,13 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-inner">
       <a href="/" class="mobile-link">Home</a>
-      <a href="/#work" class="mobile-link">Work</a>
+      <a href="/work/" class="mobile-link">Work</a>
       <a href="/#services" class="mobile-link">Services</a>
       <a href="/#process" class="mobile-link">Process</a>
-      <a href="/#about" class="mobile-link">About</a>
+      <a href="/about/" class="mobile-link">About</a>
       <a href="/#faq" class="mobile-link">FAQ</a>
       <a href="/audit" class="mobile-link">Website Audit</a>
-      <a href="/#contact" class="btn btn-primary mobile-cta">Start a Project</a>
+      <button type="button" class="btn btn-primary mobile-cta open-contact-modal">Start a Project</button>
     </div>
   </div>
 
@@ -537,7 +537,7 @@
         <div class="footer-links">
           <div class="footer-col">
             <p class="footer-col-title">Studio</p>
-            <a href="/#work">Work</a>
+            <a href="/work/">Work</a>
             <a href="/#services">Services</a>
             <a href="/about/">About</a>
             <a href="/audit">Website Audit</a>
@@ -719,6 +719,214 @@
       } else {
         fixesEl.innerHTML = '<p style="font-size:14px;color:#9CA3AF;">No priority fixes identified.</p>';
       }
+
+    })();
+  </script>
+
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="modalTitle">Start a Project</h2>
+          <p class="modal-subtitle">Tell us about your vision. We'll get back to you within 48 hours.</p>
+        </div>
+        <button type="button" class="modal-close" id="modalClose" aria-label="Close form">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="1.5"/><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="field-name" class="form-label">Name <span class="required">*</span></label>
+          <input type="text" id="field-name" name="name" class="form-input" placeholder="Your full name" required autocomplete="name">
+          <p class="form-error" id="error-name"></p>
+        </div>
+        <div class="form-group">
+          <label for="field-email" class="form-label">Email <span class="required">*</span></label>
+          <input type="email" id="field-email" name="email" class="form-input" placeholder="you@company.com" required autocomplete="email">
+          <p class="form-error" id="error-email"></p>
+        </div>
+        <div class="form-group">
+          <label for="field-business" class="form-label">Business Name</label>
+          <input type="text" id="field-business" name="business" class="form-input" placeholder="Your company or brand name" autocomplete="organization">
+        </div>
+        <div class="form-group">
+          <label for="field-service" class="form-label">Service Interested In</label>
+          <select id="field-service" name="service" class="form-input form-select">
+            <option value="" disabled selected>Select a service</option>
+            <option value="brand-identity">Brand Identity</option>
+            <option value="web-design">Web Design</option>
+            <option value="product-sourcing">Product Sourcing</option>
+            <option value="full-package">Full Brand Package</option>
+            <option value="not-sure">Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="field-description" class="form-label">Tell Us About Your Project <span class="required">*</span></label>
+          <textarea id="field-description" name="description" class="form-input form-textarea" placeholder="What are you looking to build? What's the current state of your brand? Any timeline in mind?" required rows="4"></textarea>
+          <p class="form-error" id="error-description"></p>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="formSubmit">
+          <span class="submit-text">Send Inquiry</span>
+          <span class="submit-loading" style="display:none;">
+            <svg class="spinner" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="40" stroke-dashoffset="10" stroke-linecap="round"/></svg>
+            Sending...
+          </span>
+        </button>
+        <p class="form-footer-note">We respect your privacy. Your information is only used to respond to your inquiry.</p>
+      </form>
+      <div class="form-success" id="formSuccess" style="display:none;">
+        <div class="success-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#1B2A4A" stroke-width="2"/><path d="M15 24l6 6 12-12" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="success-title">Message sent.</h3>
+        <p class="success-body">Thank you for reaching out. We'll review your project details and get back to you within 48 hours.</p>
+        <button type="button" class="btn btn-secondary" id="successClose">Close</button>
+      </div>
+      <div class="form-error-state" id="formError" style="display:none;">
+        <div class="error-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#B44" stroke-width="2"/><line x1="16" y1="16" x2="32" y2="32" stroke="#B44" stroke-width="2" stroke-linecap="round"/><line x1="32" y1="16" x2="16" y2="32" stroke="#B44" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="error-title">Something went wrong.</h3>
+        <p class="error-body" id="errorMessage">Please try again or email us directly at contact.studionorthcreative@gmail.com</p>
+        <button type="button" class="btn btn-secondary" id="errorRetry">Try Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      function showFieldError(fieldId, message) {
+        var errorEl = document.getElementById('error-' + fieldId);
+        var inputEl = document.getElementById('field-' + fieldId);
+        if (errorEl) { errorEl.textContent = message; errorEl.classList.add('show'); }
+        if (inputEl) { inputEl.classList.add('error'); }
+      }
+
+      function clearFieldError(fieldId) {
+        var errorEl = document.getElementById('error-' + fieldId);
+        var inputEl = document.getElementById('field-' + fieldId);
+        if (errorEl) { errorEl.classList.remove('show'); }
+        if (inputEl) { inputEl.classList.remove('error'); }
+      }
+
+      var modal = document.getElementById('contactModal');
+      var modalBackdrop = document.getElementById('modalBackdrop');
+      var modalCloseBtn = document.getElementById('modalClose');
+      var contactForm = document.getElementById('contactForm');
+      var formSuccess = document.getElementById('formSuccess');
+      var formError = document.getElementById('formError');
+      var formSubmitBtn = document.getElementById('formSubmit');
+      var successCloseBtn = document.getElementById('successClose');
+      var errorRetryBtn = document.getElementById('errorRetry');
+
+      function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        contactForm.style.display = '';
+        formSuccess.style.display = 'none';
+        formError.style.display = 'none';
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.open-contact-modal').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal();
+        });
+      });
+
+      modalCloseBtn.addEventListener('click', closeModal);
+      modalBackdrop.addEventListener('click', closeModal);
+      successCloseBtn.addEventListener('click', closeModal);
+
+      errorRetryBtn.addEventListener('click', function () {
+        contactForm.style.display = '';
+        formError.style.display = 'none';
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      ['name', 'email', 'description'].forEach(function (fieldId) {
+        var input = document.getElementById('field-' + fieldId);
+        if (input) {
+          input.addEventListener('input', function () { clearFieldError(fieldId); });
+        }
+      });
+
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var name = document.getElementById('field-name').value.trim();
+        var email = document.getElementById('field-email').value.trim();
+        var description = document.getElementById('field-description').value.trim();
+        var valid = true;
+
+        ['name', 'email', 'description'].forEach(function (f) { clearFieldError(f); });
+
+        if (!name) { showFieldError('name', 'Please enter your name.'); valid = false; }
+        if (!email) {
+          showFieldError('email', 'Please enter your email.'); valid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showFieldError('email', 'Please enter a valid email address.'); valid = false;
+        }
+        if (!description || description.length < 10) {
+          showFieldError('description', description ? 'Please provide a bit more detail.' : 'Please tell us about your project.');
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        formSubmitBtn.disabled = true;
+        formSubmitBtn.querySelector('.submit-text').style.display = 'none';
+        formSubmitBtn.querySelector('.submit-loading').style.display = '';
+
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            business: document.getElementById('field-business').value.trim(),
+            service: document.getElementById('field-service').value,
+            description: description
+          })
+        })
+        .then(function (res) {
+          return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+        })
+        .then(function (result) {
+          if (result.ok) {
+            contactForm.style.display = 'none';
+            formSuccess.style.display = '';
+            contactForm.reset();
+          } else {
+            contactForm.style.display = 'none';
+            formError.style.display = '';
+            var errMsg = document.getElementById('errorMessage');
+            if (result.data && result.data.details) { errMsg.textContent = result.data.details; }
+          }
+        })
+        .catch(function () {
+          contactForm.style.display = 'none';
+          formError.style.display = '';
+        })
+        .finally(function () {
+          formSubmitBtn.disabled = false;
+          formSubmitBtn.querySelector('.submit-text').style.display = '';
+          formSubmitBtn.querySelector('.submit-loading').style.display = 'none';
+        });
+      });
 
     })();
   </script>
