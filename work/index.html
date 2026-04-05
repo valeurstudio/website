@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Design — StudioNorth</title>
-  <meta name="description" content="StudioNorth builds custom websites that feel premium, convert visitors, and give your brand a home that represents what you actually do.">
-  <link rel="canonical" href="https://studionorth.co/services/web-design/">
+  <title>Work — StudioNorth</title>
+  <meta name="description" content="A focused collection of brand identity, web design, and product sourcing projects from StudioNorth.">
+  <link rel="canonical" href="https://studionorth.co/work/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     .page-hero {
       padding-top: clamp(140px, 16vw, 200px);
@@ -30,152 +30,28 @@
       pointer-events: none;
     }
     .page-hero-inner { position: relative; z-index: 1; }
-    .page-hero-num {
-      font-family: var(--font-serif);
-      font-size: 80px;
-      font-weight: 400;
-      color: var(--surface-deep);
-      line-height: 1;
-      display: block;
-      margin-bottom: var(--gap-xs);
-    }
     .page-hero-headline {
       font-family: var(--font-serif);
-      font-size: clamp(44px, 6.5vw, 80px);
+      font-size: clamp(52px, 7.5vw, 96px);
       font-weight: 500;
       line-height: 1.0;
       color: var(--ink-deep);
       letter-spacing: -0.02em;
+      margin-top: var(--gap-md);
       margin-bottom: var(--gap-md);
-      margin-top: var(--gap-sm);
     }
     .page-hero-sub {
       font-size: clamp(17px, 1.5vw, 20px);
       line-height: 1.55;
       color: var(--neutral-600);
-      max-width: 500px;
+      max-width: 460px;
     }
-    .includes-section {
-      padding: var(--section-lg) 0;
-      background: var(--white);
-    }
-    .includes-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--gap-xl);
-      align-items: start;
-      margin-top: var(--gap-xl);
-    }
-    .includes-body {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--neutral-600);
-      margin-bottom: var(--gap-md);
-    }
-    .includes-list li {
-      font-size: 15px;
-      color: var(--ink);
-      padding: 14px 0;
-      border-bottom: 1px solid var(--surface-light);
-      padding-left: 20px;
-      position: relative;
-      line-height: 1.4;
-    }
-    .includes-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 5px;
-      height: 5px;
-      background: var(--surface-deep);
-      border-radius: 50%;
-    }
-    .includes-visual {
-      aspect-ratio: 4/5;
-      background: var(--ink);
-      border-radius: 8px;
-      display: flex;
-      align-items: flex-end;
-      padding: var(--gap-lg);
-      position: relative;
-      overflow: hidden;
-    }
-    .includes-visual-texture {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(160deg, var(--ink) 0%, var(--ink-mid) 60%, var(--ink-light) 100%);
-      opacity: 0.6;
-    }
-    .includes-visual-label {
-      font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: rgba(255, 255, 255, 0.25);
-      position: relative;
-      z-index: 1;
-    }
-    .for-section {
-      padding: var(--section-md) 0;
-      background: var(--surface-light);
-    }
-    .for-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--gap-xl);
-      align-items: start;
-      margin-top: var(--gap-lg);
-    }
-    .for-body {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--neutral-600);
-      margin-bottom: var(--gap-md);
-    }
-    .for-list li {
-      font-size: 15px;
-      color: var(--neutral-600);
-      padding: 12px 0;
-      border-bottom: 1px solid var(--surface-deep);
-      line-height: 1.5;
-    }
-    .for-list li:first-child { border-top: 1px solid var(--surface-deep); }
-    .outcomes-section {
-      padding: var(--section-lg) 0;
-      background: var(--surface-primary);
-    }
-    .outcomes-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--gap-lg);
-      margin-top: var(--gap-xl);
-    }
-    .outcome-card {
-      padding: var(--gap-lg) 0;
-      border-top: 2px solid var(--surface-deep);
-      transition: border-color var(--duration-fast) var(--ease);
-    }
-    .outcome-card:hover { border-color: var(--ink); }
-    .outcome-title {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--ink-deep);
-      margin-bottom: var(--gap-sm);
-      line-height: 1.2;
-    }
-    .outcome-desc {
+    .work-desc {
       font-size: 14px;
-      line-height: 1.65;
+      line-height: 1.6;
       color: var(--neutral-600);
-    }
-    @media (max-width: 768px) {
-      .includes-inner, .for-inner { grid-template-columns: 1fr; }
-      .includes-visual { aspect-ratio: 4/3; }
-      .outcomes-grid { grid-template-columns: 1fr; }
-      .page-hero-num { font-size: 56px; }
+      margin-top: 8px;
+      max-width: 360px;
     }
   </style>
 </head>
@@ -220,120 +96,95 @@
     <section class="page-hero">
       <div class="container">
         <div class="page-hero-inner reveal">
-          <span class="page-hero-num">02</span>
-          <p class="section-label">Service</p>
-          <h1 class="page-hero-headline">Web Design</h1>
-          <p class="page-hero-sub">A site that earns its place in your brand. Custom built, conversion focused, and made to represent what you actually do.</p>
-          <div style="margin-top:var(--gap-lg);">
-            <button type="button" class="btn btn-primary open-contact-modal">Start a Project</button>
-          </div>
+          <p class="section-label">Our Work</p>
+          <h1 class="page-hero-headline">The Work.</h1>
+          <p class="page-hero-sub">A focused collection of brand, web, and product work.</p>
         </div>
       </div>
     </section>
 
-    <section class="includes-section">
+    <section class="work">
       <div class="container">
-        <div class="reveal">
-          <p class="section-label">What's Included</p>
-          <h2 class="section-headline">Built for your business.</h2>
-        </div>
-        <div class="includes-inner">
-          <div class="reveal">
-            <p class="includes-body">A template is not a website. We design and build custom sites from the ground up, structured around how your customers think and what your business needs to communicate.</p>
-            <ul class="includes-list">
-              <li>Custom responsive design</li>
-              <li>Conversion-optimised page structure</li>
-              <li>SEO foundation and metadata</li>
-              <li>CMS setup and documentation</li>
-              <li>Cross-browser and device QA</li>
-              <li>Launch support and training</li>
-            </ul>
-          </div>
-          <div class="includes-visual reveal">
-            <div class="includes-visual-texture"></div>
-            <span class="includes-visual-label">Web Design</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="work-grid">
 
-    <section class="for-section">
-      <div class="container">
-        <div class="for-inner">
-          <div class="reveal">
-            <p class="section-label">Who It's For</p>
-            <h2 class="section-headline">The right fit.</h2>
-          </div>
-          <div class="reveal">
-            <p class="for-body">Great websites are not about aesthetics alone. They are about communicating clearly, building trust quickly, and making it easy for the right people to take the next step.</p>
-            <ul class="for-list">
-              <li>Service businesses that rely on their site for leads</li>
-              <li>Brands whose current site no longer reflects their quality</li>
-              <li>Businesses launching for the first time and doing it properly</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+          <a href="#" class="work-card work-card-large reveal">
+            <div class="work-image">
+              <div class="work-placeholder" style="background-color: #D8D0C4;">
+                <span>Brand + Web</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h2 class="work-title">Meridian Wellness</h2>
+              <span class="work-tag">Wellness &middot; Brand + Web</span>
+              <p class="work-desc">A full brand and website build for a holistic wellness practice ready to move past the generic health aesthetic.</p>
+            </div>
+          </a>
 
-    <section class="process">
-      <div class="container">
-        <div class="process-header reveal">
-          <p class="section-label">How It Works</p>
-          <h2 class="section-headline">The process.</h2>
-        </div>
-        <div class="process-steps">
-          <div class="process-step reveal">
-            <span class="step-number">01</span>
-            <div class="step-content">
-              <h3 class="step-title">Brief</h3>
-              <p class="step-desc">We define goals, audience, key pages, and the actions you need visitors to take. Structure comes before design.</p>
+          <a href="#" class="work-card reveal">
+            <div class="work-image">
+              <div class="work-placeholder" style="background-color: #C4CDD8;">
+                <span>Website</span>
+              </div>
             </div>
-          </div>
-          <div class="process-step reveal">
-            <span class="step-number">02</span>
-            <div class="step-content">
-              <h3 class="step-title">Wireframe</h3>
-              <p class="step-desc">We map the architecture and content flow before touching visuals. This is where the site earns its structure.</p>
+            <div class="work-info">
+              <h2 class="work-title">Harlow Interiors</h2>
+              <span class="work-tag">Interior Design &middot; Website</span>
+              <p class="work-desc">A bespoke website for a high-end residential studio built to attract the right kind of client from the first click.</p>
             </div>
-          </div>
-          <div class="process-step reveal">
-            <span class="step-number">03</span>
-            <div class="step-content">
-              <h3 class="step-title">Design</h3>
-              <p class="step-desc">We build the visual layer in full alignment with your brand. Every screen, every state, every detail considered.</p>
-            </div>
-          </div>
-          <div class="process-step reveal">
-            <span class="step-number">04</span>
-            <div class="step-content">
-              <h3 class="step-title">Launch</h3>
-              <p class="step-desc">We QA, hand off, and walk you through everything. You own the site and know how to run it from day one.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </a>
 
-    <section class="outcomes-section">
-      <div class="container">
-        <div class="reveal">
-          <p class="section-label">What You Walk Away With</p>
-          <h2 class="section-headline">The outcome.</h2>
-        </div>
-        <div class="outcomes-grid">
-          <div class="outcome-card reveal">
-            <h3 class="outcome-title">A site that converts</h3>
-            <p class="outcome-desc">Designed with clear hierarchy and intentional calls to action so visitors know what to do next and feel confident doing it.</p>
-          </div>
-          <div class="outcome-card reveal">
-            <h3 class="outcome-title">Full ownership and control</h3>
-            <p class="outcome-desc">You own every file, every domain, every account. Nothing is locked behind a proprietary system or our ongoing involvement.</p>
-          </div>
-          <div class="outcome-card reveal">
-            <h3 class="outcome-title">A platform built to grow</h3>
-            <p class="outcome-desc">Clean structure and solid SEO foundations mean your site can expand with your business without starting over.</p>
-          </div>
+          <a href="#" class="work-card reveal">
+            <div class="work-image">
+              <div class="work-placeholder" style="background-color: #D0C4D8;">
+                <span>Full Rebrand</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h2 class="work-title">Forma Studio</h2>
+              <span class="work-tag">Fitness &middot; Brand + Web + Product</span>
+              <p class="work-desc">A complete overhaul across identity, digital presence, and branded merchandise for a boutique fitness studio.</p>
+            </div>
+          </a>
+
+          <a href="#" class="work-card work-card-large reveal">
+            <div class="work-image">
+              <div class="work-placeholder" style="background-color: #C8D4C4;">
+                <span>Brand + Product</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h2 class="work-title">Sable &amp; Co</h2>
+              <span class="work-tag">E-Commerce &middot; Brand + Product</span>
+              <p class="work-desc">Brand identity and custom product sourcing for a premium lifestyle brand launching across retail and direct-to-consumer.</p>
+            </div>
+          </a>
+
+          <a href="#" class="work-card reveal">
+            <div class="work-image">
+              <div class="work-placeholder" style="background-color: #C8C4BC;">
+                <span>Brand + Web</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h2 class="work-title">Vessel Coffee</h2>
+              <span class="work-tag">Hospitality &middot; Brand + Web</span>
+              <p class="work-desc">A café and roastery brand built to feel as considered as the coffee it serves.</p>
+            </div>
+          </a>
+
+          <a href="#" class="work-card reveal">
+            <div class="work-image">
+              <div class="work-placeholder" style="background-color: #D4CAC0;">
+                <span>Brand Identity</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <h2 class="work-title">Lune Apothecary</h2>
+              <span class="work-tag">Beauty &middot; Brand Identity</span>
+              <p class="work-desc">A clean, considered identity for an independent apothecary positioned at the intersection of beauty and wellness.</p>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -341,8 +192,8 @@
     <section class="final-cta">
       <div class="container-narrow">
         <div class="final-cta-content reveal">
-          <h2 class="final-cta-headline">Ready for a site that works as hard as you do?</h2>
-          <p class="final-cta-sub">Tell us what you are building and we will tell you how we can help.</p>
+          <h2 class="final-cta-headline">Ready to add yours?</h2>
+          <p class="final-cta-sub">Tell us about your project and what you are trying to build.</p>
           <button type="button" class="btn btn-primary btn-light open-contact-modal">Start a Project</button>
         </div>
       </div>
@@ -382,7 +233,7 @@
           <select id="field-service" name="service" class="form-input form-select">
             <option value="" disabled selected>Select a service</option>
             <option value="brand-identity">Brand Identity</option>
-            <option value="web-design" selected>Web Design</option>
+            <option value="web-design">Web Design</option>
             <option value="product-sourcing">Product Sourcing</option>
             <option value="full-package">Full Brand Package</option>
             <option value="not-sure">Not Sure Yet</option>
@@ -455,6 +306,6 @@
     </div>
   </footer>
 
-  <script src="../../script.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>
