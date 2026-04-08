@@ -30,7 +30,13 @@
       background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .services-hero-inner { position: relative; z-index: 1; }
+    .services-hero-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-xl);
+      align-items: center;
+    }
     .services-hero-headline {
       font-family: var(--font-serif);
       font-size: clamp(44px, 6.5vw, 80px);
@@ -45,34 +51,28 @@
       font-size: clamp(17px, 1.5vw, 20px);
       line-height: 1.55;
       color: var(--neutral-600);
-      max-width: 540px;
-      margin-bottom: var(--gap-xl);
+      max-width: 480px;
     }
-    .services-jump-nav {
+    .services-hero-visual {
+      aspect-ratio: 4/5;
+      background: var(--ink-deep);
+      border-radius: 8px;
       display: flex;
-      gap: var(--gap-xl);
-      flex-wrap: wrap;
+      align-items: flex-end;
+      padding: var(--gap-lg);
+      position: relative;
+      overflow: hidden;
     }
-    .services-jump-link {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--ink-deep);
-      text-decoration: none;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--surface-deep);
-      transition: border-color var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease);
+    .services-hero-visual-texture {
+      position: absolute; inset: 0;
+      background: linear-gradient(170deg, var(--ink-deep) 0%, #253559 50%, var(--ink-deep) 100%);
+      opacity: 0.8;
     }
-    .services-jump-link:hover { border-color: var(--ink-deep); }
-    .services-jump-num {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--surface-deep);
-      line-height: 1;
+    .services-hero-visual-label {
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.2);
+      position: relative; z-index: 1;
     }
 
     /* SERVICE SECTIONS */
@@ -202,8 +202,8 @@
     }
 
     @media (max-width: 768px) {
-      .services-jump-nav { flex-direction: column; gap: 0; }
-      .services-jump-link { padding: 14px 0; }
+      .services-hero-inner { grid-template-columns: 1fr; }
+      .services-hero-visual { aspect-ratio: 4/3; }
       .service-intro { grid-template-columns: 1fr; gap: var(--gap-md); }
       .service-num { font-size: 44px; padding-top: 0; }
       .service-body { grid-template-columns: 1fr; }
@@ -253,23 +253,15 @@
     <section class="services-hero">
       <div class="container">
         <div class="services-hero-inner reveal">
-          <p class="section-label">Services</p>
-          <h1 class="services-hero-headline">What we do.</h1>
-          <p class="services-hero-sub">Three focused disciplines, one studio. Brand identity, web design, and product sourcing — each one complete, each one built to last.</p>
-          <nav class="services-jump-nav" aria-label="Jump to service">
-            <a href="#brand-identity" class="services-jump-link">
-              <span class="services-jump-num">01</span>
-              Brand Identity
-            </a>
-            <a href="#web-design" class="services-jump-link">
-              <span class="services-jump-num">02</span>
-              Web Design
-            </a>
-            <a href="#product-sourcing" class="services-jump-link">
-              <span class="services-jump-num">03</span>
-              Product Sourcing
-            </a>
-          </nav>
+          <div class="services-hero-content">
+            <p class="section-label">Services</p>
+            <h1 class="services-hero-headline">What we build.</h1>
+            <p class="services-hero-sub">Brand identity, web design, and product sourcing, built to work together and built to last.</p>
+          </div>
+          <div class="services-hero-visual">
+            <div class="services-hero-visual-texture"></div>
+            <span class="services-hero-visual-label">StudioNorth</span>
+          </div>
         </div>
       </div>
     </section>
@@ -284,7 +276,7 @@
             <p class="section-label">Brand Identity</p>
             <h2 class="service-headline">The visual foundation everything else lives on.</h2>
             <p class="service-sub">Brand identity is more than a logo. It is a system of visual decisions that work together so your business looks like one business, everywhere it shows up.</p>
-            <button type="button" class="btn btn-primary open-contact-modal">Start a Project</button>
+            <button type="button" class="btn btn-primary open-contact-modal">Shape Your Identity</button>
           </div>
         </div>
 
@@ -334,7 +326,7 @@
             <p class="section-label">Web Design</p>
             <h2 class="service-headline">A site that earns its place in your brand.</h2>
             <p class="service-sub">A template is not a website. We design and build custom sites from the ground up, structured around how your customers think and what your business needs to communicate.</p>
-            <button type="button" class="btn btn-primary open-contact-modal">Start a Project</button>
+            <button type="button" class="btn btn-primary open-contact-modal">Plan Your Site</button>
           </div>
         </div>
 
@@ -384,7 +376,7 @@
             <p class="section-label">Product Sourcing</p>
             <h2 class="service-headline">Your brand, extended into the physical world.</h2>
             <p class="service-sub">Physical products are one of the most overlooked parts of a brand. When they are done well, they reinforce trust. We handle the process from product strategy through to final delivery.</p>
-            <button type="button" class="btn btn-primary open-contact-modal">Start a Project</button>
+            <button type="button" class="btn btn-primary open-contact-modal">Source Your Product</button>
           </div>
         </div>
 
@@ -429,7 +421,7 @@
         <div class="final-cta-content reveal">
           <h2 class="final-cta-headline">Not sure where to start?</h2>
           <p class="final-cta-sub">Tell us where you are and what you are building. We will tell you what makes sense.</p>
-          <button type="button" class="btn btn-primary btn-light open-contact-modal">Start a Project</button>
+          <button type="button" class="btn btn-primary btn-light open-contact-modal">Start the Conversation</button>
         </div>
       </div>
     </section>
