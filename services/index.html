@@ -53,6 +53,53 @@
       color: var(--neutral-600);
       max-width: 480px;
     }
+
+    /* Hero quick links */
+    .hero-service-links {
+      margin-top: var(--gap-xl);
+      border-top: 1px solid var(--surface-deep);
+    }
+    .hero-service-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--surface-deep);
+      text-decoration: none;
+      color: inherit;
+    }
+    .hero-service-link-num {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--neutral-600);
+      line-height: 1;
+      min-width: 22px;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+    .hero-service-link-label {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink-deep);
+      flex: 1;
+      letter-spacing: 0.01em;
+      transition: color var(--duration-fast) var(--ease);
+    }
+    .hero-service-link-arrow {
+      font-size: 14px;
+      color: var(--neutral-600);
+      transition: transform var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease);
+      flex-shrink: 0;
+    }
+    .hero-service-link:hover .hero-service-link-label {
+      color: var(--ink);
+    }
+    .hero-service-link:hover .hero-service-link-arrow {
+      transform: translateX(4px);
+      color: var(--ink-deep);
+    }
+
     .services-hero-visual {
       aspect-ratio: 4/5;
       background: var(--ink-deep);
@@ -257,6 +304,23 @@
             <p class="section-label">Services</p>
             <h1 class="services-hero-headline">What we build.</h1>
             <p class="services-hero-sub">Brand identity, web design, and product sourcing, built to work together and built to last.</p>
+            <nav class="hero-service-links" aria-label="Jump to service">
+              <a href="#brand-identity" class="hero-service-link">
+                <span class="hero-service-link-num">01</span>
+                <span class="hero-service-link-label">Brand Identity</span>
+                <span class="hero-service-link-arrow">&#8594;</span>
+              </a>
+              <a href="#web-design" class="hero-service-link">
+                <span class="hero-service-link-num">02</span>
+                <span class="hero-service-link-label">Web Design</span>
+                <span class="hero-service-link-arrow">&#8594;</span>
+              </a>
+              <a href="#product-sourcing" class="hero-service-link">
+                <span class="hero-service-link-num">03</span>
+                <span class="hero-service-link-label">Product Sourcing</span>
+                <span class="hero-service-link-arrow">&#8594;</span>
+              </a>
+            </nav>
           </div>
           <div class="services-hero-visual">
             <div class="services-hero-visual-texture"></div>
