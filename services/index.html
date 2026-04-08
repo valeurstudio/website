@@ -122,6 +122,14 @@
       position: relative; z-index: 1;
     }
 
+    /* Service CTA group */
+    .service-cta-group {
+      display: flex;
+      align-items: center;
+      gap: var(--gap-sm);
+      flex-wrap: wrap;
+    }
+
     /* SERVICE SECTIONS */
     .service-section {
       padding: var(--section-lg) 0;
@@ -302,8 +310,8 @@
         <div class="services-hero-inner reveal">
           <div class="services-hero-content">
             <p class="section-label">Services</p>
-            <h1 class="services-hero-headline">What we build.</h1>
-            <p class="services-hero-sub">Brand identity, web design, and product sourcing, built to work together and built to last.</p>
+            <h1 class="services-hero-headline">Built to hold together.</h1>
+            <p class="services-hero-sub">Brand identity, web design, and product sourcing for businesses that need every part of the brand to feel considered, connected, and built to last.</p>
             <nav class="hero-service-links" aria-label="Jump to service">
               <a href="#brand-identity" class="hero-service-link">
                 <span class="hero-service-link-num">01</span>
@@ -340,7 +348,10 @@
             <p class="section-label">Brand Identity</p>
             <h2 class="service-headline">The visual foundation everything else lives on.</h2>
             <p class="service-sub">Brand identity is more than a logo. It is a system of visual decisions that work together so your business looks like one business, everywhere it shows up.</p>
-            <button type="button" class="btn btn-primary open-contact-modal">Shape Your Identity</button>
+            <div class="service-cta-group">
+              <button type="button" class="btn btn-primary open-contact-modal">Shape Your Identity</button>
+              <a href="/services/brand-identity/" class="btn btn-secondary">Learn more</a>
+            </div>
           </div>
         </div>
 
@@ -390,7 +401,10 @@
             <p class="section-label">Web Design</p>
             <h2 class="service-headline">A site that earns its place in your brand.</h2>
             <p class="service-sub">A template is not a website. We design and build custom sites from the ground up, structured around how your customers think and what your business needs to communicate.</p>
-            <button type="button" class="btn btn-primary open-contact-modal">Plan Your Site</button>
+            <div class="service-cta-group">
+              <button type="button" class="btn btn-primary open-contact-modal">Plan Your Site</button>
+              <a href="/services/web-design/" class="btn btn-secondary">Learn more</a>
+            </div>
           </div>
         </div>
 
@@ -440,7 +454,10 @@
             <p class="section-label">Product Sourcing</p>
             <h2 class="service-headline">Your brand, extended into the physical world.</h2>
             <p class="service-sub">Physical products are one of the most overlooked parts of a brand. When they are done well, they reinforce trust. We handle the process from product strategy through to final delivery.</p>
-            <button type="button" class="btn btn-primary open-contact-modal">Source Your Product</button>
+            <div class="service-cta-group">
+              <button type="button" class="btn btn-primary open-contact-modal">Source Your Product</button>
+              <a href="/services/product-sourcing/" class="btn btn-secondary">Learn more</a>
+            </div>
           </div>
         </div>
 
