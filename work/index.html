@@ -40,19 +40,19 @@
     }
     .page-hero-headline {
       font-family: var(--font-serif);
-      font-size: clamp(44px, 6vw, 72px);
+      font-size: clamp(42px, 6vw, 76px);
       font-weight: 500;
-      line-height: 1.0;
+      line-height: 1.05;
       color: var(--ink-deep);
       letter-spacing: -0.02em;
       margin-top: var(--gap-md);
       margin-bottom: var(--gap-md);
     }
     .page-hero-sub {
-      font-size: clamp(17px, 1.5vw, 20px);
-      line-height: 1.55;
+      font-size: clamp(16px, 1.4vw, 19px);
+      line-height: 1.6;
       color: var(--neutral-600);
-      max-width: 520px;
+      max-width: 480px;
     }
     .page-hero-visual {
       aspect-ratio: 4/5;
@@ -60,7 +60,8 @@
       border-radius: 8px;
       border: 1px solid rgba(27, 42, 74, 0.08);
       display: flex;
-      align-items: flex-end;
+      flex-direction: column;
+      gap: var(--gap-md);
       padding: var(--gap-lg);
       position: relative;
       overflow: hidden;
@@ -71,14 +72,41 @@
       background: linear-gradient(170deg, var(--surface-deep) 0%, #c8c0b4 50%, var(--surface-deep) 100%);
       opacity: 0.7;
     }
+    .page-hero-visual-frame {
+      flex: 1;
+      border: 1px solid rgba(27, 42, 74, 0.14);
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero-visual-frame-rule {
+      position: absolute;
+      bottom: 28%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(27, 42, 74, 0.10);
+    }
+    .page-hero-visual-caption {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .page-hero-visual-bar {
+      display: block;
+      height: 1px;
+      background: rgba(27, 42, 74, 0.20);
+    }
+    .page-hero-visual-bar--lg { width: 68%; }
+    .page-hero-visual-bar--sm { width: 40%; }
     .page-hero-visual-label {
       font-size: 11px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: rgba(27, 42, 74, 0.35);
-      position: relative;
-      z-index: 1;
+      margin-top: 4px;
     }
 
     /* --- How We Work --- */
@@ -247,7 +275,14 @@
           </div>
           <div class="page-hero-visual">
             <div class="page-hero-visual-texture"></div>
-            <span class="page-hero-visual-label">Studio North</span>
+            <div class="page-hero-visual-frame">
+              <div class="page-hero-visual-frame-rule"></div>
+            </div>
+            <div class="page-hero-visual-caption">
+              <span class="page-hero-visual-bar page-hero-visual-bar--lg"></span>
+              <span class="page-hero-visual-bar page-hero-visual-bar--sm"></span>
+              <span class="page-hero-visual-label">Studio North</span>
+            </div>
           </div>
         </div>
       </div>
