@@ -55,7 +55,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--gap-xl);
-      align-items: start;
+      align-items: stretch;
     }
     .cs-back {
       font-size: 13px;
@@ -69,6 +69,11 @@
       transition: color var(--duration-fast) var(--ease);
     }
     .cs-back:hover { color: var(--ink-deep); }
+    .cs-hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
     .cs-hero-headline {
       font-family: var(--font-serif);
       font-size: clamp(44px, 6.5vw, 80px);
@@ -84,7 +89,7 @@
       line-height: 1.55;
       color: var(--neutral-600);
       max-width: 480px;
-      margin-bottom: var(--gap-xl);
+      margin-bottom: 0;
     }
     .cs-meta {
       display: flex;
@@ -167,6 +172,17 @@
       margin-top: var(--gap-md);
     }
 
+    /* Narrative sections — editorial 2-column layout */
+    .cs-narrative {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--gap-xl);
+      align-items: start;
+    }
+    .cs-narrative-content {
+      max-width: 600px;
+    }
+
     /* Work sections — 2 column with visual */
     .cs-work-grid {
       display: grid;
@@ -206,6 +222,7 @@
     }
     .cs-break-inner {
       max-width: 780px;
+      margin: 0 auto;
     }
     .cs-break-label {
       font-size: 11px;
@@ -266,6 +283,7 @@
     }
     .cs-testimonial-inner {
       max-width: 760px;
+      margin: 0 auto;
     }
     .cs-testimonial-label {
       font-size: 11px;
@@ -344,14 +362,33 @@
       transform: translateX(6px);
       color: var(--ink-deep);
     }
+    .cs-next-image {
+      width: 200px;
+      aspect-ratio: 3/2;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .cs-next-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--duration-fast) var(--ease);
+    }
+    .cs-next-link:hover .cs-next-img {
+      transform: scale(1.04);
+    }
 
     /* Mobile */
     @media (max-width: 768px) {
       .cs-hero-inner { grid-template-columns: 1fr; }
       .cs-hero-visual { display: none; }
+      .cs-narrative { grid-template-columns: 1fr; }
       .cs-work-grid { grid-template-columns: 1fr; }
       .cs-work-visual { aspect-ratio: 4/3; }
       .cs-outcomes { grid-template-columns: 1fr; }
+      .cs-next-image { width: 100%; }
       .cs-next-link { flex-direction: column; align-items: flex-start; gap: var(--gap-md); }
     }
   </style>
@@ -399,9 +436,11 @@
       <div class="container">
         <div class="cs-hero-inner reveal">
           <div class="cs-hero-content">
-            <p class="section-label">Case Study</p>
-            <h1 class="cs-hero-headline">Meridian Wellness</h1>
-            <p class="cs-hero-descriptor">A wellness practice rebuilt so the brand finally matched the quality of the work behind it.</p>
+            <div class="cs-hero-text">
+              <p class="section-label">Case Study</p>
+              <h1 class="cs-hero-headline">Meridian Wellness</h1>
+              <p class="cs-hero-descriptor">A wellness practice rebuilt so the brand finally matched the quality of the work behind it.</p>
+            </div>
             <div class="cs-meta">
               <div class="cs-meta-item">
                 <span class="cs-meta-label">Industry</span>
@@ -428,12 +467,16 @@
     <!-- ─── THE CLIENT ─── -->
     <section class="cs-section" style="background: var(--white);">
       <div class="container">
-        <div class="cs-section-narrow reveal">
-          <p class="section-label">The Client</p>
-          <h2 class="cs-headline">A practice that had outgrown its brand.</h2>
-          <div class="cs-body">
-            <p>Meridian Wellness is a wellness practice built on the belief that good health is earned through intention, not accident. The team had spent years developing a reputation for careful, considered work with their clients. They were known by the people who had experienced what they did. The problem was what happened before that point.</p>
-            <p>When a potential client encountered Meridian for the first time, online or otherwise, they were not meeting the practice at its best. They were meeting a brand that had not kept pace with the work. And a brand that does not reflect the quality of what it represents costs the business in every moment that matters.</p>
+        <div class="cs-narrative reveal">
+          <div class="cs-narrative-label">
+            <p class="section-label">The Client</p>
+          </div>
+          <div class="cs-narrative-content">
+            <h2 class="cs-headline">A practice that had outgrown its brand.</h2>
+            <div class="cs-body">
+              <p>Meridian Wellness is a wellness practice built on the belief that good health is earned through intention, not accident. The team had spent years developing a reputation for careful, considered work with their clients. They were known by the people who had experienced what they did. The problem was what happened before that point.</p>
+              <p>When a potential client encountered Meridian for the first time, online or otherwise, they were not meeting the practice at its best. They were meeting a brand that had not kept pace with the work. And a brand that does not reflect the quality of what it represents costs the business in every moment that matters.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -442,12 +485,16 @@
     <!-- ─── THE PROBLEM ─── -->
     <section class="cs-section" style="background: var(--surface-light);">
       <div class="container">
-        <div class="cs-section-narrow reveal">
-          <p class="section-label">The Problem</p>
-          <h2 class="cs-headline">A brand assembled in pieces.</h2>
-          <div class="cs-body">
-            <p>When a potential client encountered Meridian online, they were met with a visual identity that had been patched together over time. The logo from one era, the website from another, the print materials from a third. No single element was broken. But nothing worked together either.</p>
-            <p>The brand communicated effort without communicating intention. For a practice built on trust, expertise, and a particular kind of attention, that incoherence was costing them in the moments that mattered most. The first impression should have done the qualifying. Instead it was raising questions the practice then had to answer in person.</p>
+        <div class="cs-narrative reveal">
+          <div class="cs-narrative-label">
+            <p class="section-label">The Problem</p>
+          </div>
+          <div class="cs-narrative-content">
+            <h2 class="cs-headline">A brand assembled in pieces.</h2>
+            <div class="cs-body">
+              <p>When a potential client encountered Meridian online, they were met with a visual identity that had been patched together over time. The logo from one era, the website from another, the print materials from a third. No single element was broken. But nothing worked together either.</p>
+              <p>The brand communicated effort without communicating intention. For a practice built on trust, expertise, and a particular kind of attention, that incoherence was costing them in the moments that mattered most. The first impression should have done the qualifying. Instead it was raising questions the practice then had to answer in person.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -456,12 +503,16 @@
     <!-- ─── DIRECTION ─── -->
     <section class="cs-section" style="background: var(--white);">
       <div class="container">
-        <div class="cs-section-narrow reveal">
-          <p class="section-label">Direction</p>
-          <h2 class="cs-headline">Calm, considered, and built to hold together.</h2>
-          <div class="cs-body">
-            <p>The brief was to build a brand that communicates confidence without coldness. Meridian's work is human and precise, and the visual system needed to carry both of those qualities at once. Not clinical. Not soft. Something that felt like a practice that takes what it does seriously without making that feel inaccessible.</p>
-            <p>We started from the mark and worked outward, making sure every decision in color, type, structure, and space was something the whole system could sustain. The goal was not to make Meridian look different. It was to make it finally look like itself.</p>
+        <div class="cs-narrative reveal">
+          <div class="cs-narrative-label">
+            <p class="section-label">Direction</p>
+          </div>
+          <div class="cs-narrative-content">
+            <h2 class="cs-headline">Calm, considered, and built to hold together.</h2>
+            <div class="cs-body">
+              <p>The brief was to build a brand that communicates confidence without coldness. Meridian's work is human and precise, and the visual system needed to carry both of those qualities at once. Not clinical. Not soft. Something that felt like a practice that takes what it does seriously without making that feel inaccessible.</p>
+              <p>We started from the mark and worked outward, making sure every decision in color, type, structure, and space was something the whole system could sustain. The goal was not to make Meridian look different. It was to make it finally look like itself.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -562,6 +613,9 @@
     <section class="cs-next">
       <div class="container">
         <a href="#" class="cs-next-link reveal" aria-label="Next project: Harlow Interiors">
+          <div class="cs-next-image">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt="A light-filled minimal studio interior with modern Scandinavian furnishings" class="cs-next-img" loading="lazy">
+          </div>
           <div>
             <span class="cs-next-label">Next Project</span>
             <span class="cs-next-title">Harlow Interiors</span>
