@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — StudioNorth</title>
+  <meta name="description" content="StudioNorth offers brand identity, web design, and product sourcing for businesses that take their visual presence seriously.">
+  <link rel="canonical" href="https://studionorth.co/services/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#1B2A4A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* PAGE HERO */
+    .services-hero {
+      padding-top: clamp(140px, 16vw, 200px);
+      padding-bottom: var(--section-md);
+      background: var(--surface-primary);
+      position: relative;
+      overflow: hidden;
+    }
+    .services-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .services-hero-inner { position: relative; z-index: 1; }
+    .services-hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(44px, 6.5vw, 80px);
+      font-weight: 500;
+      line-height: 1.0;
+      color: var(--ink-deep);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--gap-md);
+      margin-top: var(--gap-sm);
+    }
+    .services-hero-sub {
+      font-size: clamp(17px, 1.5vw, 20px);
+      line-height: 1.55;
+      color: var(--neutral-600);
+      max-width: 540px;
+      margin-bottom: var(--gap-xl);
+    }
+    .services-jump-nav {
+      display: flex;
+      gap: var(--gap-xl);
+      flex-wrap: wrap;
+    }
+    .services-jump-link {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink-deep);
+      text-decoration: none;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--surface-deep);
+      transition: border-color var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease);
+    }
+    .services-jump-link:hover { border-color: var(--ink-deep); }
+    .services-jump-num {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--surface-deep);
+      line-height: 1;
+    }
+
+    /* SERVICE SECTIONS */
+    .service-section {
+      padding: var(--section-lg) 0;
+      scroll-margin-top: 80px;
+    }
+    #brand-identity { background: var(--white); }
+    #web-design { background: var(--surface-light); }
+    #product-sourcing { background: var(--white); }
+
+    /* Service intro */
+    .service-intro {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: var(--gap-xl);
+      align-items: start;
+      margin-bottom: var(--gap-xl);
+      padding-bottom: var(--gap-xl);
+      border-bottom: 1px solid var(--surface-deep);
+    }
+    .service-num {
+      font-family: var(--font-serif);
+      font-size: 60px;
+      font-weight: 400;
+      color: var(--surface-deep);
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .service-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--ink-deep);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--gap-md);
+    }
+    .service-sub {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--neutral-600);
+      max-width: 560px;
+      margin-bottom: var(--gap-lg);
+    }
+
+    /* Includes + visual */
+    .service-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-xl);
+      align-items: start;
+      margin-bottom: var(--section-sm);
+    }
+    .service-includes-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--neutral-600);
+      margin-bottom: var(--gap-md);
+    }
+    .service-includes-list { list-style: none; }
+    .service-includes-list li {
+      font-size: 15px;
+      color: var(--ink);
+      padding: 13px 0 13px 20px;
+      border-bottom: 1px solid var(--surface-light);
+      position: relative;
+      line-height: 1.4;
+    }
+    .service-includes-list li:first-child { border-top: 1px solid var(--surface-light); }
+    .service-includes-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 5px; height: 5px;
+      background: var(--surface-deep);
+      border-radius: 50%;
+    }
+    .service-visual {
+      aspect-ratio: 4/5;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--gap-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-visual-texture {
+      position: absolute; inset: 0;
+    }
+    .service-visual-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Outcomes */
+    .service-outcomes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap-lg);
+    }
+    .service-outcome {
+      padding: var(--gap-lg) 0;
+      border-top: 2px solid var(--surface-deep);
+      transition: border-color var(--duration-fast) var(--ease);
+    }
+    .service-outcome:hover { border-color: var(--ink); }
+    .service-outcome-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink-deep);
+      margin-bottom: var(--gap-sm);
+      line-height: 1.2;
+    }
+    .service-outcome-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--neutral-600);
+    }
+
+    @media (max-width: 768px) {
+      .services-jump-nav { flex-direction: column; gap: 0; }
+      .services-jump-link { padding: 14px 0; }
+      .service-intro { grid-template-columns: 1fr; gap: var(--gap-md); }
+      .service-num { font-size: 44px; padding-top: 0; }
+      .service-body { grid-template-columns: 1fr; }
+      .service-visual { aspect-ratio: 4/3; }
+      .service-outcomes { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">STUDIONORTH</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/work/">Work</a>
+        <a href="/services/" class="active">Services</a>
+        <a href="/#process">Process</a>
+        <a href="/about/">About</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/audit">Website Audit</a>
+      </div>
+      <button type="button" class="btn btn-primary nav-cta open-contact-modal">Start a Project</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="/" class="mobile-link">Home</a>
+      <a href="/work/" class="mobile-link">Work</a>
+      <a href="/services/" class="mobile-link">Services</a>
+      <a href="/#process" class="mobile-link">Process</a>
+      <a href="/about/" class="mobile-link">About</a>
+      <a href="/#faq" class="mobile-link">FAQ</a>
+      <a href="/audit" class="mobile-link">Website Audit</a>
+      <button type="button" class="btn btn-primary mobile-cta open-contact-modal">Start a Project</button>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section class="services-hero">
+      <div class="container">
+        <div class="services-hero-inner reveal">
+          <p class="section-label">Services</p>
+          <h1 class="services-hero-headline">What we do.</h1>
+          <p class="services-hero-sub">Three focused disciplines, one studio. Brand identity, web design, and product sourcing — each one complete, each one built to last.</p>
+          <nav class="services-jump-nav" aria-label="Jump to service">
+            <a href="#brand-identity" class="services-jump-link">
+              <span class="services-jump-num">01</span>
+              Brand Identity
+            </a>
+            <a href="#web-design" class="services-jump-link">
+              <span class="services-jump-num">02</span>
+              Web Design
+            </a>
+            <a href="#product-sourcing" class="services-jump-link">
+              <span class="services-jump-num">03</span>
+              Product Sourcing
+            </a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND IDENTITY -->
+    <section class="service-section" id="brand-identity">
+      <div class="container">
+
+        <div class="service-intro reveal">
+          <span class="service-num">01</span>
+          <div>
+            <p class="section-label">Brand Identity</p>
+            <h2 class="service-headline">The visual foundation everything else lives on.</h2>
+            <p class="service-sub">Brand identity is more than a logo. It is a system of visual decisions that work together so your business looks like one business, everywhere it shows up.</p>
+            <button type="button" class="btn btn-primary open-contact-modal">Start a Project</button>
+          </div>
+        </div>
+
+        <div class="service-body">
+          <div class="reveal">
+            <p class="service-includes-label">What's Included</p>
+            <ul class="service-includes-list">
+              <li>Logo and brand mark system</li>
+              <li>Color palette with usage rules</li>
+              <li>Typography selection and hierarchy</li>
+              <li>Brand guidelines document</li>
+              <li>Visual language and pattern library</li>
+              <li>Brand collateral templates</li>
+            </ul>
+          </div>
+          <div class="service-visual reveal" style="background: var(--surface-deep);">
+            <div class="service-visual-texture" style="background: linear-gradient(160deg, var(--surface-deep) 0%, #c8c0b4 60%, var(--surface-primary) 100%); opacity: 0.7;"></div>
+            <span class="service-visual-label" style="color: rgba(27,42,74,0.35);">Brand Identity</span>
+          </div>
+        </div>
+
+        <div class="service-outcomes reveal">
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">A complete visual system</h3>
+            <p class="service-outcome-desc">Not just files. A coherent set of visual decisions that scale across every surface your brand touches, now and as you grow.</p>
+          </div>
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">Production-ready assets</h3>
+            <p class="service-outcome-desc">Organised, labeled, and ready to use across print, web, social, and packaging without additional preparation or guesswork.</p>
+          </div>
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">Confidence at every touchpoint</h3>
+            <p class="service-outcome-desc">Your team knows what to use and when. Your brand stays consistent whether you manage it yourself or hand it to someone else.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WEB DESIGN -->
+    <section class="service-section" id="web-design">
+      <div class="container">
+
+        <div class="service-intro reveal">
+          <span class="service-num">02</span>
+          <div>
+            <p class="section-label">Web Design</p>
+            <h2 class="service-headline">A site that earns its place in your brand.</h2>
+            <p class="service-sub">A template is not a website. We design and build custom sites from the ground up, structured around how your customers think and what your business needs to communicate.</p>
+            <button type="button" class="btn btn-primary open-contact-modal">Start a Project</button>
+          </div>
+        </div>
+
+        <div class="service-body">
+          <div class="reveal">
+            <p class="service-includes-label">What's Included</p>
+            <ul class="service-includes-list">
+              <li>Custom responsive design</li>
+              <li>Conversion-optimised page structure</li>
+              <li>SEO foundation and metadata</li>
+              <li>CMS setup and documentation</li>
+              <li>Cross-browser and device QA</li>
+              <li>Launch support and training</li>
+            </ul>
+          </div>
+          <div class="service-visual reveal" style="background: var(--ink);">
+            <div class="service-visual-texture" style="background: linear-gradient(160deg, var(--ink) 0%, var(--ink-mid) 60%, var(--ink-light) 100%); opacity: 0.6;"></div>
+            <span class="service-visual-label" style="color: rgba(255,255,255,0.25);">Web Design</span>
+          </div>
+        </div>
+
+        <div class="service-outcomes reveal">
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">A site that converts</h3>
+            <p class="service-outcome-desc">Designed with clear hierarchy and intentional calls to action so visitors know what to do next and feel confident doing it.</p>
+          </div>
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">Full ownership and control</h3>
+            <p class="service-outcome-desc">You own every file, every domain, every account. Nothing is locked behind a proprietary system or our ongoing involvement.</p>
+          </div>
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">A platform built to grow</h3>
+            <p class="service-outcome-desc">Clean structure and solid SEO foundations mean your site can expand with your business without starting over.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRODUCT SOURCING -->
+    <section class="service-section" id="product-sourcing">
+      <div class="container">
+
+        <div class="service-intro reveal">
+          <span class="service-num">03</span>
+          <div>
+            <p class="section-label">Product Sourcing</p>
+            <h2 class="service-headline">Your brand, extended into the physical world.</h2>
+            <p class="service-sub">Physical products are one of the most overlooked parts of a brand. When they are done well, they reinforce trust. We handle the process from product strategy through to final delivery.</p>
+            <button type="button" class="btn btn-primary open-contact-modal">Start a Project</button>
+          </div>
+        </div>
+
+        <div class="service-body">
+          <div class="reveal">
+            <p class="service-includes-label">What's Included</p>
+            <ul class="service-includes-list">
+              <li>Product concept and strategy</li>
+              <li>Custom merchandise and apparel design</li>
+              <li>Vendor sourcing and management</li>
+              <li>Packaging design</li>
+              <li>Production proofing and quality assurance</li>
+              <li>Fulfillment coordination</li>
+            </ul>
+          </div>
+          <div class="service-visual reveal" style="background: var(--surface-deep);">
+            <div class="service-visual-texture" style="background: linear-gradient(160deg, #c8c0b4 0%, var(--surface-deep) 50%, #bbb0a4 100%); opacity: 0.8;"></div>
+            <span class="service-visual-label" style="color: rgba(27,42,74,0.35);">Product Sourcing</span>
+          </div>
+        </div>
+
+        <div class="service-outcomes reveal">
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">Products that hold up</h3>
+            <p class="service-outcome-desc">Physical items that match your brand standards and the expectations of the people receiving them. No compromises on quality.</p>
+          </div>
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">Vendor relationships and specs</h3>
+            <p class="service-outcome-desc">You receive full production documentation. Every spec, every vendor contact, everything needed to reorder or adapt without starting over.</p>
+          </div>
+          <div class="service-outcome">
+            <h3 class="service-outcome-title">A physical brand extension</h3>
+            <p class="service-outcome-desc">Products that feel like a natural part of your brand, not an afterthought. Cohesion across every surface, including the ones people can hold.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container-narrow">
+        <div class="final-cta-content reveal">
+          <h2 class="final-cta-headline">Not sure where to start?</h2>
+          <p class="final-cta-sub">Tell us where you are and what you are building. We will tell you what makes sense.</p>
+          <button type="button" class="btn btn-primary btn-light open-contact-modal">Start a Project</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="modalTitle">Start a Project</h2>
+          <p class="modal-subtitle">Tell us about your vision. We'll get back to you within 48 hours.</p>
+        </div>
+        <button type="button" class="modal-close" id="modalClose" aria-label="Close form">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="1.5"/><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="field-name" class="form-label">Name <span class="required">*</span></label>
+          <input type="text" id="field-name" name="name" class="form-input" placeholder="Your full name" required autocomplete="name">
+          <p class="form-error" id="error-name"></p>
+        </div>
+        <div class="form-group">
+          <label for="field-email" class="form-label">Email <span class="required">*</span></label>
+          <input type="email" id="field-email" name="email" class="form-input" placeholder="you@company.com" required autocomplete="email">
+          <p class="form-error" id="error-email"></p>
+        </div>
+        <div class="form-group">
+          <label for="field-business" class="form-label">Business Name</label>
+          <input type="text" id="field-business" name="business" class="form-input" placeholder="Your company or brand name" autocomplete="organization">
+        </div>
+        <div class="form-group">
+          <label for="field-service" class="form-label">Service Interested In</label>
+          <select id="field-service" name="service" class="form-input form-select">
+            <option value="" disabled selected>Select a service</option>
+            <option value="brand-identity">Brand Identity</option>
+            <option value="web-design">Web Design</option>
+            <option value="product-sourcing">Product Sourcing</option>
+            <option value="full-package">Full Brand Package</option>
+            <option value="not-sure">Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="field-description" class="form-label">Tell Us About Your Project <span class="required">*</span></label>
+          <textarea id="field-description" name="description" class="form-input form-textarea" placeholder="What are you looking to build? What's the current state of your brand? Any timeline in mind?" required rows="4"></textarea>
+          <p class="form-error" id="error-description"></p>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit" id="formSubmit">
+          <span class="submit-text">Send Inquiry</span>
+          <span class="submit-loading" style="display:none;">
+            <svg class="spinner" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="40" stroke-dashoffset="10" stroke-linecap="round"/></svg>
+            Sending...
+          </span>
+        </button>
+        <p class="form-footer-note">We respect your privacy. Your information is only used to respond to your inquiry.</p>
+      </form>
+      <div class="form-success" id="formSuccess" style="display:none;">
+        <div class="success-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#1B2A4A" stroke-width="2"/><path d="M15 24l6 6 12-12" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="success-title">Message sent.</h3>
+        <p class="success-body">Thank you for reaching out. We'll review your project details and get back to you within 48 hours.</p>
+        <button type="button" class="btn btn-secondary" id="successClose">Close</button>
+      </div>
+      <div class="form-error-state" id="formError" style="display:none;">
+        <div class="error-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#B44" stroke-width="2"/><line x1="16" y1="16" x2="32" y2="32" stroke="#B44" stroke-width="2" stroke-linecap="round"/><line x1="32" y1="16" x2="16" y2="32" stroke="#B44" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="error-title">Something went wrong.</h3>
+        <p class="error-body" id="errorMessage">Please try again or email us directly at contact.studionorthcreative@gmail.com</p>
+        <button type="button" class="btn btn-secondary" id="errorRetry">Try Again</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">STUDIONORTH</a>
+          <p class="footer-descriptor">Design & Brand Studio</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <p class="footer-col-title">Studio</p>
+            <a href="/work/">Work</a>
+            <a href="/services/">Services</a>
+            <a href="/about/">About</a>
+            <a href="/audit">Website Audit</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Services</p>
+            <a href="/services/#brand-identity">Brand Identity</a>
+            <a href="/services/#web-design">Web Design</a>
+            <a href="/services/#product-sourcing">Product Sourcing</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Connect</p>
+            <a href="mailto:contact.studionorthcreative@gmail.com">Email</a>
+            <a href="https://www.instagram.com/studionorthcreative/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 StudioNorth Creative Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
