@@ -55,7 +55,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--gap-xl);
-      align-items: center;
+      align-items: start;
     }
     .cs-back {
       font-size: 13px;
@@ -121,8 +121,15 @@
     .cs-hero-visual-texture {
       position: absolute;
       inset: 0;
-      background: linear-gradient(170deg, var(--ink-deep) 0%, #253559 50%, var(--ink-deep) 100%);
-      opacity: 0.8;
+      background: linear-gradient(150deg, #253559 0%, var(--ink-deep) 100%);
+    }
+    .cs-hero-visual-rule {
+      position: absolute;
+      left: var(--gap-lg);
+      right: var(--gap-lg);
+      top: 38%;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
     }
     .cs-hero-visual-label {
       font-size: 11px;
@@ -165,8 +172,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--gap-xl);
-      align-items: start;
-      margin-top: var(--gap-xl);
+      align-items: center;
+    }
+    .cs-work-text {
+      padding-right: var(--gap-lg);
     }
     .cs-work-visual {
       aspect-ratio: 4/5;
@@ -390,7 +399,6 @@
       <div class="container">
         <div class="cs-hero-inner reveal">
           <div class="cs-hero-content">
-            <a href="/work/" class="cs-back">&#8592; Work</a>
             <p class="section-label">Case Study</p>
             <h1 class="cs-hero-headline">Meridian Wellness</h1>
             <p class="cs-hero-descriptor">A wellness practice rebuilt so the brand finally matched the quality of the work behind it.</p>
@@ -411,7 +419,7 @@
           </div>
           <div class="cs-hero-visual">
             <div class="cs-hero-visual-texture"></div>
-            <span class="cs-hero-visual-label">Meridian Wellness</span>
+            <div class="cs-hero-visual-rule"></div>
           </div>
         </div>
       </div>
@@ -473,14 +481,14 @@
     <!-- ─── BRAND IDENTITY ─── -->
     <section class="cs-section" style="background: var(--surface-light);">
       <div class="container">
-        <div class="cs-section-narrow reveal" style="margin-bottom: var(--gap-xl);">
-          <p class="section-label">Brand Identity</p>
-          <h2 class="cs-headline">A system built to scale.</h2>
-        </div>
         <div class="cs-work-grid">
-          <div class="cs-body reveal">
-            <p>The identity work covered the full range. A refined logo mark grounded in restraint and clarity. A color palette that communicates calm authority without reading as sterile. A typographic system with enough hierarchy to carry the full range of the practice's communications. Every element was tested against the contexts that mattered most to Meridian: digital, print, and the clinical environments where the brand had to work without drawing attention to itself.</p>
-            <p>The work was delivered with a brand guidelines document that gave the team everything they needed to use the system consistently without external support. Not a file dump. A working reference for a brand they could own and extend.</p>
+          <div class="cs-work-text reveal">
+            <p class="section-label">Brand Identity</p>
+            <h2 class="cs-headline">A system built to scale.</h2>
+            <div class="cs-body">
+              <p>The identity work covered the full range. A refined logo mark grounded in restraint and clarity. A color palette that communicates calm authority without reading as sterile. A typographic system with enough hierarchy to carry the full range of the practice's communications. Every element was tested against the contexts that mattered most to Meridian: digital, print, and the clinical environments where the brand had to work without drawing attention to itself.</p>
+              <p>The work was delivered with a brand guidelines document that gave the team everything they needed to use the system consistently without external support. Not a file dump. A working reference for a brand they could own and extend.</p>
+            </div>
           </div>
           <div class="cs-work-visual reveal" style="background: var(--surface-deep);">
             <div class="cs-work-visual-texture" style="background: linear-gradient(160deg, var(--surface-deep) 0%, #c8c0b4 60%, var(--surface-primary) 100%); opacity: 0.7;"></div>
@@ -493,14 +501,14 @@
     <!-- ─── WEB DESIGN ─── -->
     <section class="cs-section" style="background: var(--white);">
       <div class="container">
-        <div class="cs-section-narrow reveal" style="margin-bottom: var(--gap-xl);">
-          <p class="section-label">Web Design</p>
-          <h2 class="cs-headline">A site that leads with the practice.</h2>
-        </div>
         <div class="cs-work-grid">
-          <div class="cs-body reveal">
-            <p>The site was designed around a single question: what does a prospective client need to understand before they decide to reach out? The structure was built from that answer inward. Clear hierarchy, deliberate pacing, and a visual language that carried the new brand without competing with the content.</p>
-            <p>Someone who was not the right fit should know that quickly. Someone who was the right fit should feel it. The site now functions as a first impression and a qualification tool at once, working for Meridian before anyone on the team has had a chance to speak.</p>
+          <div class="cs-work-text reveal">
+            <p class="section-label">Web Design</p>
+            <h2 class="cs-headline">A site that leads with the practice.</h2>
+            <div class="cs-body">
+              <p>The site was designed around a single question: what does a prospective client need to understand before they decide to reach out? The structure was built from that answer inward. Clear hierarchy, deliberate pacing, and a visual language that carried the new brand without competing with the content.</p>
+              <p>Someone who was not the right fit should know that quickly. Someone who was the right fit should feel it. The site now functions as a first impression and a qualification tool at once, working for Meridian before anyone on the team has had a chance to speak.</p>
+            </div>
           </div>
           <div class="cs-work-visual reveal" style="background: var(--ink);">
             <div class="cs-work-visual-texture" style="background: linear-gradient(160deg, var(--ink) 0%, var(--ink-mid) 60%, var(--ink-light) 100%); opacity: 0.6;"></div>
