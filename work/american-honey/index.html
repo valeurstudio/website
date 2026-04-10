@@ -201,6 +201,20 @@
       position: relative;
       z-index: 1;
     }
+    /* Mockup row */
+    .cs-mockup-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--gap-md);
+      margin-top: var(--gap-xl);
+    }
+    .cs-mockup-img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
 
     /* Dark editorial break */
     .cs-break {
@@ -379,6 +393,7 @@
       .cs-hero-visual { display: none; }
       .cs-work-grid { grid-template-columns: 1fr; }
       .cs-work-visual { aspect-ratio: 4/3; }
+      .cs-mockup-row { grid-template-columns: 1fr; }
       .cs-outcomes { grid-template-columns: 1fr; }
       .cs-next-image { width: 100%; }
       .cs-next-link { flex-direction: column; align-items: flex-start; gap: var(--gap-md); }
@@ -519,8 +534,13 @@
             </div>
           </div>
           <div class="cs-work-visual reveal" style="padding: 0;">
-            <img src="/images/american-honey-icecream.jpg" alt="Ice cream scoop with honey drizzle and artisanal ingredients on a warm wooden surface" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;">
+            <img src="/images/american-honey-mockup-ipad-hands.jpg" alt="American Honey website on iPad, showing the homepage hero" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;">
           </div>
+        </div>
+        <div class="cs-mockup-row reveal">
+          <img src="/images/american-honey-mockup-apollo.jpg" alt="Apollo Beach Menu page on laptop" class="cs-mockup-img">
+          <img src="/images/american-honey-mockup-gift.jpg" alt="Gift Cards page on MacBook" class="cs-mockup-img">
+          <img src="/images/american-honey-mockup-about.jpg" alt="About page on desktop monitor" class="cs-mockup-img">
         </div>
       </div>
     </section>
