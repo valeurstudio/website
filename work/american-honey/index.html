@@ -55,7 +55,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--gap-xl);
-      align-items: stretch;
+      align-items: center;
     }
     .cs-back {
       font-size: 13px;
@@ -75,7 +75,7 @@
       font-family: var(--font-serif);
       font-size: clamp(36px, 5.5vw, 72px);
       font-weight: 500;
-      line-height: 1.0;
+      line-height: 1.05;
       color: var(--ink-deep);
       letter-spacing: -0.02em;
       margin-bottom: var(--gap-md);
@@ -395,6 +395,15 @@
     }
     .cs-meta-link:hover { color: var(--neutral-600); }
 
+    /* Gradient placeholder panels */
+    .cs-placeholder {
+      margin-top: var(--gap-xl);
+      aspect-ratio: 16/7;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       .cs-hero-inner { grid-template-columns: 1fr; }
@@ -405,6 +414,10 @@
       .cs-outcomes { grid-template-columns: 1fr; }
       .cs-next-image { width: 100%; }
       .cs-next-link { flex-direction: column; align-items: flex-start; gap: var(--gap-md); }
+      .cs-section { padding: var(--section-md) 0; }
+      .cs-work-text { padding-right: 0; }
+      .cs-meta { gap: var(--gap-md); }
+      .cs-placeholder { aspect-ratio: 16/9; }
     }
   </style>
 </head>
@@ -451,6 +464,7 @@
       <div class="container">
         <div class="cs-hero-inner reveal">
           <div class="cs-hero-content">
+            <a href="/work/" class="cs-back"><span>←</span> Work</a>
             <p class="section-label">Case Study</p>
             <h1 class="cs-hero-headline">American Honey Creamery &amp; Coffee Co.</h1>
             <p class="cs-hero-descriptor">A multi-location creamery and coffee brand, rebuilt across website, brand direction, and packaging so the full customer experience holds together.</p>
@@ -491,7 +505,7 @@
             <p>The problem was not awareness. It was what happened after someone discovered the brand online. The website was not doing its part. And beyond the website, the brand itself was showing up differently depending on where a customer encountered it.</p>
           </div>
         </div>
-        <div class="reveal" style="margin-top: var(--gap-xl); aspect-ratio: 16/7; border-radius: 8px; position: relative; overflow: hidden;">
+        <div class="cs-placeholder reveal">
           <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #BF7A3A 0%, #7A4020 100%);"></div>
           <div style="position: absolute; left: var(--gap-lg); right: var(--gap-lg); top: 40%; height: 1px; background: rgba(255,255,255,0.1);"></div>
           <span style="position: absolute; bottom: var(--gap-lg); left: var(--gap-lg); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.25);">American Honey</span>
@@ -510,7 +524,7 @@
             <p>The platform, built on GoDaddy, limited what was structurally possible. Navigation was scattered. Page architecture did not reflect how customers actually move through a brand like this. And the brand itself looked different depending on where a customer saw it. Website, app, packaging, and marketing graphics were not working from the same visual language. The result was a fragmented experience for a brand that deserved better.</p>
           </div>
         </div>
-        <div class="reveal" style="margin-top: var(--gap-xl); aspect-ratio: 16/7; border-radius: 8px; position: relative; overflow: hidden;">
+        <div class="cs-placeholder reveal">
           <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #2E3D58 0%, #1B2A4A 100%);"></div>
           <div style="position: absolute; left: var(--gap-lg); right: var(--gap-lg); top: 40%; height: 1px; background: rgba(255,255,255,0.1);"></div>
           <span style="position: absolute; bottom: var(--gap-lg); left: var(--gap-lg); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.25);">American Honey</span>
@@ -529,7 +543,7 @@
             <p>We moved the site to Shopify. Not to change how American Honey takes orders or manages operations, but to give the redesign a foundation that could handle structure, mobile experience, content management, and SEO without fighting the platform. The Clover system, app ordering, and DoorDash integration all stayed in place. The website became the layer that guides people toward them.</p>
           </div>
         </div>
-        <div class="reveal" style="margin-top: var(--gap-xl); aspect-ratio: 16/7; border-radius: 8px; position: relative; overflow: hidden;">
+        <div class="cs-placeholder reveal">
           <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #D4A87A 0%, #A06030 100%);"></div>
           <div style="position: absolute; left: var(--gap-lg); right: var(--gap-lg); top: 40%; height: 1px; background: rgba(255,255,255,0.1);"></div>
           <span style="position: absolute; bottom: var(--gap-lg); left: var(--gap-lg); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.25);">American Honey</span>
@@ -620,7 +634,7 @@
             <p>The loyalty and reputation American Honey had built through years of genuine community presence now has the infrastructure to match it. A website that guides. A brand system that holds together. Packaging that carries the experience beyond the screen.</p>
           </div>
         </div>
-        <div class="reveal" style="margin-top: var(--gap-xl); aspect-ratio: 16/7; border-radius: 8px; position: relative; overflow: hidden;">
+        <div class="cs-placeholder reveal">
           <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #C8894A 0%, #8B5030 100%);"></div>
           <div style="position: absolute; left: var(--gap-lg); right: var(--gap-lg); top: 40%; height: 1px; background: rgba(255,255,255,0.1);"></div>
           <span style="position: absolute; bottom: var(--gap-lg); left: var(--gap-lg); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.25);">American Honey</span>
