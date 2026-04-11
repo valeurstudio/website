@@ -1,7 +1,5 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO_EMAIL = process.env.CONTACT_EMAIL || 'contact.studionorthcreative@gmail.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'StudioNorth <onboarding@resend.dev>';
 
@@ -14,6 +12,16 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
+
+  if (!process.env.RESEND_API_KEY) {
+    console.error('RESEND_API_KEY not set');
+    return res.status(500).json({
+      error: 'Email service not configured',
+      details: 'Please email us directly at contact.studionorthcreative@gmail.com',
+    });
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const { name, email, business, service, description, budget } = req.body;

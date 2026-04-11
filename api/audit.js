@@ -30,8 +30,8 @@ export default async function handler(req, res) {
     const ctx = { businessName, businessType, whatYouSell: whatTheySell, targetCustomer, websiteGoal: mainGoal };
     const audit = await runAudit(url, ctx);
 
-    // Fire-and-forget lead notification email
-    sendLeadEmail({ url, businessName, businessType, whatTheySell, targetCustomer, mainGoal, name, email, phone, notes }, audit);
+    // Send lead notification email (awaited so it completes before function exits)
+    await sendLeadEmail({ url, businessName, businessType, whatTheySell, targetCustomer, mainGoal, name, email, phone, notes }, audit);
 
     return res.status(200).json({ success: true, audit });
 
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 
 // ─── Lead notification ───────────────────────────────────────────────────────
 
-function sendLeadEmail(lead, audit) {
+async function sendLeadEmail(lead, audit) {
   if (!process.env.RESEND_API_KEY) {
     console.warn('RESEND_API_KEY not set — skipping lead email');
     return;
@@ -95,13 +95,14 @@ function sendLeadEmail(lead, audit) {
       </div>
     </div>`;
 
-  resend.emails.send({
+  const { error } = await resend.emails.send({
     from: FROM_EMAIL,
     to: [TO_EMAIL],
     replyTo: lead.email,
     subject: `New Audit Lead — ${lead.businessName} (${displayUrl})`,
     html,
-  }).catch(err => console.error('Lead email failed:', err));
+  });
+  if (error) console.error('Lead email failed:', error);
 }
 
 function escapeHtml(str) {
