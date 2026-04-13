@@ -1,4 +1,4 @@
-// StudioNorth — Interactions & Tracking
+// Valeur Studio — Interactions & Tracking
 
 // --- GTM dataLayer (safe to initialize even without GTM) ---
 window.dataLayer = window.dataLayer || [];

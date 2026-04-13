@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 
 const TO_EMAIL = process.env.CONTACT_EMAIL || 'contact.studionorthcreative@gmail.com';
-const FROM_EMAIL = process.env.FROM_EMAIL || 'StudioNorth <onboarding@resend.dev>';
+const FROM_EMAIL = process.env.FROM_EMAIL || 'Valeur Studio <onboarding@resend.dev>';
 
 export default async function handler(req, res) {
   // Handle CORS preflight
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; color: #1B2A4A;">
         <div style="background: #F0EBE3; padding: 32px; border-radius: 8px; margin-bottom: 24px;">
           <h1 style="font-size: 24px; font-weight: 600; margin: 0 0 8px;">New Project Inquiry</h1>
-          <p style="font-size: 14px; color: #6B7280; margin: 0;">Submitted via Studio North Contact Form</p>
+          <p style="font-size: 14px; color: #6B7280; margin: 0;">Submitted via Valeur Studio Contact Form</p>
         </div>
 
         <table style="width: 100%; border-collapse: collapse; font-size: 15px;">

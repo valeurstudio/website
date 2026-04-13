@@ -1,4 +1,4 @@
-// Audit engine configuration — ported from studio-north-audit reference
+// Audit engine configuration — ported from valeur-studio-audit reference
 
 export const CATEGORY_WEIGHTS = {
   content:     0.25,

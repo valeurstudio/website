@@ -123,7 +123,7 @@ function buildPriorityFixes(categories) {
 
 async function fetchPage(url) {
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; StudioNorthAudit/1.0)' },
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ValeurStudioAudit/1.0)' },
     redirect: 'follow',
     signal: AbortSignal.timeout(15000),
   });
