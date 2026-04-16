@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 import { runAudit } from './_engine.js';
 
-const TO_EMAIL = process.env.CONTACT_EMAIL || 'hello@valeurstudio.com';
+const TO_EMAIL = process.env.CONTACT_EMAIL || 'kazan@valeurstudio.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'Valeur Studio <onboarding@resend.dev>';
 
 export default async function handler(req, res) {
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     console.error('Audit error:', err);
     return res.status(500).json({
       error: 'Audit failed',
-      details: 'Something went wrong running the audit. Please try again or email us directly at hello@valeurstudio.com',
+      details: 'Something went wrong running the audit. Please try again or email us directly at kazan@valeurstudio.com',
     });
   }
 }

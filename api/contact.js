@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-const TO_EMAIL = process.env.CONTACT_EMAIL || 'hello@valeurstudio.com';
+const TO_EMAIL = process.env.CONTACT_EMAIL || 'kazan@valeurstudio.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'Valeur Studio <onboarding@resend.dev>';
 
 export default async function handler(req, res) {
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     console.error('RESEND_API_KEY not set');
     return res.status(500).json({
       error: 'Email service not configured',
-      details: 'Please email us directly at hello@valeurstudio.com',
+      details: 'Please email us directly at kazan@valeurstudio.com',
     });
   }
 
@@ -112,7 +112,7 @@ export default async function handler(req, res) {
       console.error('Resend error:', error);
       return res.status(500).json({
         error: 'Failed to send message',
-        details: 'Please try again or email us directly at hello@valeurstudio.com'
+        details: 'Please try again or email us directly at kazan@valeurstudio.com'
       });
     }
 
@@ -125,7 +125,7 @@ export default async function handler(req, res) {
     console.error('Server error:', err);
     return res.status(500).json({
       error: 'Something went wrong',
-      details: 'Please try again or email us directly at hello@valeurstudio.com'
+      details: 'Please try again or email us directly at kazan@valeurstudio.com'
     });
   }
 }
