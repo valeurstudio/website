@@ -206,8 +206,9 @@
       color: var(--neutral-600);
       line-height: 1.55;
     }
-    .issue-icon  { color: #ef4444; flex-shrink: 0; font-weight: 500; margin-top: 1px; }
-    .working-icon { color: #059669; flex-shrink: 0; font-weight: 500; margin-top: 1px; }
+    .issue-icon  { color: #ef4444; flex-shrink: 0; font-weight: 500; margin-top: 2px; }
+    .working-icon { color: #059669; flex-shrink: 0; font-weight: 500; margin-top: 2px; }
+    .issue-label, .working-label { display: block; font-weight: 500; color: var(--ink); margin-bottom: 3px; font-size: 13px; }
 
     /* --- Priority fixes --- */
     .fixes-list {
@@ -238,11 +239,21 @@
       flex-shrink: 0;
       padding-top: 2px;
     }
+    .fix-content { flex: 1; }
+    .fix-category {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--neutral-400);
+      margin-bottom: 5px;
+    }
     .fix-text {
-      flex: 1;
       font-size: 14px;
       color: var(--ink);
       line-height: 1.6;
+      margin: 0;
     }
     .fix-badge {
       font-size: 11px;
@@ -284,7 +295,13 @@
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: var(--neutral-600);
+      margin-bottom: 8px;
+    }
+    .results-section-subheading {
+      font-size: 13px;
+      color: var(--neutral-400);
       margin-bottom: 16px;
+      line-height: 1.55;
     }
 
     /* --- Nudge card --- */
@@ -378,11 +395,11 @@
               <h1 class="report-site-name" id="r-site-name">example-business.com</h1>
               <p class="report-meta" id="r-meta">March 2026 · Prepared by Valeur Studio</p>
               <div class="report-summary" id="r-summary">
-                <span>6 categories analyzed</span>
+                <span>6 areas reviewed</span>
                 <span class="report-summary-dot">·</span>
-                <span>5 priority fixes identified</span>
+                <span>5 improvements to make</span>
                 <span class="report-summary-dot">·</span>
-                <span>4 strengths noted</span>
+                <span>4 things already working</span>
               </div>
             </div>
             <div class="report-score-block">
@@ -395,8 +412,8 @@
 
         <!-- Valeur Studio nudge -->
         <div class="nudge-card">
-          <p class="nudge-label">Valeur Studio</p>
-          <p class="nudge-body" id="r-nudge-body">A score of 61 means the site is functional but leaving real opportunity on the table. Every issue in this report is something we address in a website rebuild. If you want to talk through what we found, there is no cost to that conversation.</p>
+          <p class="nudge-label">What This Means</p>
+          <p class="nudge-body" id="r-nudge-body">This report covers six areas of the site and shows what is working, what is holding things back, and what to address first. A score of 61 means the site is live and working, but there are real gaps affecting how visitors find it, what they do when they arrive, and whether they take action. Every finding here is something we address in a website build. If you want to talk through what we found, there is no cost to that conversation.</p>
           <button type="button" class="nudge-link open-contact-modal">Talk to Valeur Studio →</button>
         </div>
 
@@ -458,59 +475,77 @@
         <div class="two-col-grid">
 
           <div class="report-card-section">
-            <p class="results-section-heading">Top Issues</p>
+            <p class="results-section-heading">What Is Holding the Site Back</p>
+            <p class="results-section-subheading">The findings below have the biggest impact on how visitors find and respond to the business.</p>
             <ul class="issue-list" id="r-issues-list">
-              <li class="issue-item"><span class="issue-icon">✕</span>No clear value proposition visible above the fold.</li>
-              <li class="issue-item"><span class="issue-icon">✕</span>Mobile page load time is 6.2 seconds, well above the 3-second benchmark.</li>
-              <li class="issue-item"><span class="issue-icon">✕</span>Missing meta descriptions on 4 key pages.</li>
-              <li class="issue-item"><span class="issue-icon">✕</span>Primary CTA buttons are inconsistent and easy to miss.</li>
-              <li class="issue-item"><span class="issue-icon">✕</span>Homepage copy focuses on features, not customer outcomes.</li>
+              <li class="issue-item"><span class="issue-icon">✕</span><span><strong class="issue-label">Value Proposition</strong>Visitors arriving at the site cannot immediately tell what the business does, who it serves, or why they should stay.</span></li>
+              <li class="issue-item"><span class="issue-icon">✕</span><span><strong class="issue-label">Page Load Speed</strong>The site loads slowly on mobile, which is where most visitors are arriving from.</span></li>
+              <li class="issue-item"><span class="issue-icon">✕</span><span><strong class="issue-label">Search Preview</strong>The search preview description is missing on key pages, reducing the chance of earning a click from search results.</span></li>
+              <li class="issue-item"><span class="issue-icon">✕</span><span><strong class="issue-label">Call to Action</strong>There is no clear next step in the first section of the page, so visitors who are ready to act have nowhere obvious to go.</span></li>
+              <li class="issue-item"><span class="issue-icon">✕</span><span><strong class="issue-label">Customer Focus</strong>The copy reads more like a list of features than a conversation with the customer.</span></li>
             </ul>
           </div>
 
           <div class="report-card-section">
-            <p class="results-section-heading">What Is Working</p>
+            <p class="results-section-heading">What Is Working Well</p>
+            <p class="results-section-subheading">These areas are already solid and do not need attention right now.</p>
             <ul class="working-list" id="r-working-list">
-              <li class="working-item"><span class="working-icon">✓</span>Clean, professional visual design.</li>
-              <li class="working-item"><span class="working-icon">✓</span>SSL certificate is active and the site is secure.</li>
-              <li class="working-item"><span class="working-icon">✓</span>Mobile-responsive layout across pages.</li>
-              <li class="working-item"><span class="working-icon">✓</span>Google Analytics is installed and tracking.</li>
+              <li class="working-item"><span class="working-icon">✓</span><span><strong class="working-label">Secure Connection</strong>The site runs on a secure connection, so visitors see no warnings from their browser and their information is protected.</span></li>
+              <li class="working-item"><span class="working-icon">✓</span><span><strong class="working-label">Page Load Speed</strong>Pages load quickly, with the main content appearing well within the expected range for a good visitor experience.</span></li>
+              <li class="working-item"><span class="working-icon">✓</span><span><strong class="working-label">Page Headline</strong>Each key page opens with a clear main heading so visitors immediately know where they are and what to expect.</span></li>
+              <li class="working-item"><span class="working-icon">✓</span><span><strong class="working-label">Mobile Performance</strong>The site displays and performs well on mobile devices, where most visitors are arriving from.</span></li>
             </ul>
           </div>
 
         </div>
 
         <!-- Priority fixes -->
-        <p class="results-section-heading">Priority Fixes</p>
+        <p class="results-section-heading">Recommended Actions</p>
+        <p class="results-section-subheading">Ordered by priority. Each one addresses a specific finding from the report above.</p>
         <div class="fixes-list" id="r-fixes-list">
 
           <div class="fix-card">
             <span class="fix-number">01</span>
-            <p class="fix-text">Rewrite the homepage headline to clearly state what you do and who it is for.</p>
+            <div class="fix-content">
+              <span class="fix-category">Headline</span>
+              <p class="fix-text">Write a homepage headline that immediately tells a first-time visitor what your business does and who it is for.</p>
+            </div>
             <span class="fix-badge fix-badge-high">High</span>
           </div>
 
           <div class="fix-card">
             <span class="fix-number">02</span>
-            <p class="fix-text">Compress images and enable lazy loading to reduce mobile load time.</p>
+            <div class="fix-content">
+              <span class="fix-category">Page Load Speed</span>
+              <p class="fix-text">Compress images and remove files and code that are not being used so the site loads quickly for visitors on all devices.</p>
+            </div>
             <span class="fix-badge fix-badge-high">High</span>
           </div>
 
           <div class="fix-card">
             <span class="fix-number">03</span>
-            <p class="fix-text">Add unique meta descriptions to all key pages.</p>
-            <span class="fix-badge fix-badge-medium">Medium</span>
+            <div class="fix-content">
+              <span class="fix-category">Search Preview</span>
+              <p class="fix-text">Add a search preview description to each key page so your listing in search results accurately represents your offer.</p>
+            </div>
+            <span class="fix-badge fix-badge-high">High</span>
           </div>
 
           <div class="fix-card">
             <span class="fix-number">04</span>
-            <p class="fix-text">Simplify and strengthen your primary call-to-action on every page.</p>
+            <div class="fix-content">
+              <span class="fix-category">Call to Action</span>
+              <p class="fix-text">Add a clear, visible button or link in the first section of every key page so visitors who are ready to act have an obvious path forward.</p>
+            </div>
             <span class="fix-badge fix-badge-high">High</span>
           </div>
 
           <div class="fix-card">
             <span class="fix-number">05</span>
-            <p class="fix-text">Rewrite copy to focus on customer outcomes instead of product features.</p>
+            <div class="fix-content">
+              <span class="fix-category">Customer Focus</span>
+              <p class="fix-text">Rewrite your copy to focus on what customers experience and gain, not on the process or features you offer.</p>
+            </div>
             <span class="fix-badge fix-badge-medium">Medium</span>
           </div>
 
@@ -518,8 +553,8 @@
 
         <!-- Bottom CTA -->
         <div class="results-cta">
-          <h2 class="results-cta-headline">These fixes don't have to wait.</h2>
-          <p class="results-cta-desc">Valeur Studio builds websites for businesses that are ready to fix what is holding them back. If the report felt familiar, it is worth a conversation.</p>
+          <h2 class="results-cta-headline">This is the work we do.</h2>
+          <p class="results-cta-desc">Every gap in this report is the kind of problem Valeur Studio closes in a website build. If reading this felt like looking at your own site, it is worth a conversation. There is no cost to that call.</p>
           <button type="button" class="btn btn-light open-contact-modal">Book a Free Strategy Call →</button>
         </div>
 
@@ -633,6 +668,38 @@
         return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
       }
 
+      var T = {
+        'seo.title':        { label: 'Page Title',              issue: 'The title that appears in browser tabs and search results is either missing or too long. This is the first thing a potential customer sees before deciding whether to click.', fix: 'Write a short, clear title for each key page that tells people what the page is about and who it is for.', strength: 'Each key page has a well-written title that accurately represents the content and is the right length for search results.' },
+        'seo.description':  { label: 'Search Preview',          issue: 'The short description that appears under your link in search results is missing. Without it, search engines write their own version, which often misrepresents what the business offers.', fix: 'Write a one or two sentence summary for each key page that gives people a clear reason to click through to your site.', strength: 'Your search preview description is in place and the right length, giving potential visitors a clear reason to click through.' },
+        'seo.h1':           { label: 'Page Headline',           issue: 'Each page needs one clear main heading so visitors know what that page is about. Right now it is either missing or the same heading is appearing across multiple pages.', fix: 'Give each page one specific heading that describes exactly what that page covers.', strength: 'Each key page has a single, clear main heading that tells visitors and search engines exactly what that page is about.' },
+        'seo.alt':          { label: 'Image Descriptions',      issue: 'The images on the site have no written descriptions. Search engines cannot see images the way a person can, so without descriptions they skip over the visual content entirely.', fix: 'Add a short, plain description to each meaningful image so search engines can understand what is shown and give the page credit for it.', strength: 'Each image on the site has a written description, helping search engines understand the visual content and give the site credit for it.' },
+        'seo.sitemap':      { label: 'Search Discoverability', issue: 'There is no map of the site telling search engines which pages exist. Without it, some pages may never appear in search results no matter how good the content is.', fix: 'Create a complete list of every important page on the site and submit it to Google so nothing gets left out of search results.', strength: 'A complete page list has been submitted to Google, making it easy for search engines to find and display everything on the site.' },
+        'seo.robots':       { label: 'Search Access',           issue: 'A setting on the site may be preventing search engines from reading certain pages. Pages that cannot be read by search engines will not appear in search results.', fix: 'Check the access settings on the site to confirm search engines can read every page that should appear in results.', strength: 'Search engines have clear permission to access the site and are not being blocked from reading any important pages.' },
+        'seo.canonical':    { label: 'Duplicate Page Addresses', issue: 'The site has multiple web addresses pointing to the same content. Search engines may split their attention between versions instead of building the ranking of one clear page.', fix: 'Set a single preferred address for each page so search engines know exactly which version to display in results.', strength: 'Each page has one clear preferred address, so search engines are not dividing their attention between duplicate versions.' },
+        'perf.lcp':         { label: 'Page Load Speed',         issue: 'The main content of the page takes too long to appear on screen. Most visitors will leave before it finishes loading, and this also affects where the site ranks in search results.', fix: 'Optimize the main image or content block on each key page so it loads within the first two seconds of a visitor arriving.', strength: 'Pages load quickly, with the main content appearing well within the expected range for a good visitor experience.' },
+        'perf.cls':         { label: 'Visual Stability',        issue: 'The page layout shifts and moves after the visitor arrives as content finishes loading. This feels unstable and can cause visitors to accidentally tap or click the wrong thing.', fix: 'Fix the layout so the page looks finished the moment it loads, with nothing jumping or shifting after a visitor arrives.', strength: 'The page layout is stable from the moment it loads, with nothing jumping or shifting that would frustrate visitors.' },
+        'perf.tbt':         { label: 'Click Response Time',     issue: 'The page takes too long to respond when a visitor tries to click or tap something. This creates friction right at the moment someone is ready to take action.', fix: 'Reduce the background work happening when the page loads so it responds immediately when a visitor wants to interact.', strength: 'The page responds to clicks and taps right away, with nothing slowing down the interaction.' },
+        'perf.ttfb':        { label: 'Server Speed',            issue: 'The site is slow to respond when a visitor first tries to load a page. This delay happens before anything is visible on screen and creates a poor first impression before the visitor has seen anything.', fix: 'Improve the speed at which the server starts delivering the page to visitors. This is typically a hosting or setup change made behind the scenes.', strength: 'The server starts delivering pages quickly, giving visitors a fast first impression before the rest of the content loads.' },
+        'perf.weight':      { label: 'Page Weight',             issue: 'The page is larger than it needs to be, which slows things down for visitors, especially on phones or slower connections.', fix: 'Reduce the total size of the page by compressing images and removing files and code that are not being used.', strength: 'The total size of the page is well within a healthy range, keeping load times fast across different devices and connection speeds.' },
+        'content.vp':       { label: 'First Impression',    issue: 'Visitors arriving at the site cannot immediately tell what the business does, who it is for, or why they should stay. Most will leave within seconds if this is not clear.', fix: 'Rewrite the opening section of the homepage so a first-time visitor can immediately tell what the business does, who it serves, and why it is worth their attention.', strength: 'The opening section of the site immediately communicates what the business does and who it is for, giving visitors a reason to keep reading.' },
+        'content.headline': { label: 'Main Headline',        issue: 'The main headline does not give visitors a reason to keep reading. It describes the business rather than the result or outcome the customer is looking for.', fix: 'Rewrite the headline so it leads with what the customer gets, not what the business does.', strength: 'The main headline leads with what the customer gets, giving visitors a clear reason to keep reading.' },
+        'content.outcomes': { label: 'Customer Focus',       issue: 'The copy describes what the business does but not what the customer actually walks away with. Visitors cannot easily picture the result or see why it matters to them.', fix: 'Rewrite the key pages to describe what customers experience and gain, rather than listing what the business does or provides.', strength: 'The copy focuses on what the customer gains and experiences, making it easy for visitors to see themselves in the result.' },
+        'content.clarity':  { label: 'Message Clarity',      issue: 'The message varies from page to page, making it hard for visitors to build a clear picture of what the business does and who it serves.', fix: 'Review the wording across all key pages and make sure every page says the same thing about what the business does and who it is for.', strength: 'The message is clear and consistent from page to page, making it easy for visitors to understand what the business does and who it is for.' },
+        'ux.mobile':        { label: 'Mobile Experience',    issue: 'The site is difficult to use on a phone, which is where most visitors are arriving from.', fix: 'Test every key page on a phone and fix anything that makes it hard to read, tap, or use.', strength: 'The site works well on phones and tablets, where most visitors are arriving from.' },
+        'ux.a11y':          { label: 'Site Usability',          issue: 'Parts of the site cannot be used by visitors with disabilities or by anyone navigating without a mouse. This limits who can use the site and can affect how search engines read it.', fix: 'Make sure all interactive elements work without a mouse, all images have plain descriptions, and all form fields have clear labels so the site works for everyone.', strength: 'The site works well for all visitors regardless of how they navigate, and meets current usability standards.' },
+        'ux.nav':           { label: 'Navigation',          issue: 'The site navigation makes it hard for visitors to find what they are looking for, which increases the chance they leave without taking action.', fix: 'Simplify and clarify the navigation so visitors can immediately understand where to go and how to find what matters most.', strength: 'Navigation is clear and purposeful, making it easy for visitors to orient themselves and move through the site.' },
+        'ux.hierarchy':     { label: 'Page Structure',          issue: 'The page does not guide visitors toward what matters most. There is no clear starting point, which makes the page harder to read and act on.', fix: 'Restructure each key page around a clear headline, supporting copy, and one prominent next step so visitors know exactly what to do.', strength: 'Key pages are well-structured, guiding visitors naturally from the headline through to the call to action.' },
+        'conv.cta':         { label: 'Call to Action',          issue: 'There is no clear next step in the first section of the page, so visitors who are ready to act have nowhere obvious to go.', fix: 'Add a clear, prominent button or link in the first section of every key page so visitors who are ready to reach out can do so immediately.', strength: 'A clear call to action is visible at the top of key pages, giving ready visitors an immediate path forward.' },
+        'conv.trust':       { label: 'Trust Signals',           issue: 'The site has nothing on it that gives visitors a reason to trust the business. There are no testimonials, results, or examples of past work visible anywhere.', fix: 'Add testimonials, results, or examples of past work to key pages so visitors have evidence that the business can deliver what it promises.', strength: 'Key pages include testimonials, results, or examples of past work that give visitors a reason to trust the business.' },
+        'conv.contact':     { label: 'Contact Clarity',         issue: 'It is not immediately clear how to get in touch. Visitors who are ready to reach out have to search for a way to do it, which creates unnecessary friction.', fix: 'Make the contact option easy to find on every key page, ideally in the navigation and again near the bottom of each page.', strength: 'Contact information is clearly visible and easy to find from every key page.' },
+        'conv.capture':     { label: 'Inquiry Path',         issue: 'There is no easy way for interested visitors to reach out or take a next step directly from this page.', fix: 'Add a contact form or booking option so interested visitors can reach out without having to go looking for another way to do it.', strength: 'A contact or inquiry option is visible and easy to find, giving interested visitors a clear way to take the next step.' },
+        'tech.https':       { label: 'Secure Connection',    issue: 'The site is not running on a secure connection. Some visitors will see a warning from their browser that the site is not safe, which can cause them to leave before engaging with anything.', fix: 'Switch the entire site to a secure connection so visitors see no warnings and trust the site from their first click.', strength: 'The site runs on a secure connection, so visitors see no safety warnings and their information is protected.' },
+        'tech.headers':     { label: 'Site Protection',         issue: 'The site is missing some standard safety settings that protect it and its visitors from common online threats. These are invisible to most visitors but expected by modern browsers.', fix: 'Turn on the standard safety settings available through your hosting platform to bring the site up to current protection standards.', strength: 'Standard safety settings are active on the site, protecting both the business and its visitors from common online threats.' },
+        'tech.schema':      { label: 'Search Knowledge',        issue: 'Google has less context to understand and display the business accurately in search results. The site is missing behind-the-scenes information that search engines use to understand what a business does and where it operates.', fix: 'Add a layer of behind-the-scenes business information to key pages so Google can accurately show the business name, services, and contact details in search results.', strength: 'Behind-the-scenes business information is in place on key pages, helping Google display the name, services, and contact details accurately in results.' },
+        'tech.links':       { label: 'Broken Links',            issue: 'There are links on the site that lead to pages that no longer exist. This creates a dead end for visitors and signals to search engines that the site is not well maintained.', fix: 'Find and fix every broken link on the site so visitors and search engines always reach a useful destination.', strength: 'All links on the site lead to working pages, with no dead ends for visitors or search engines.' },
+        'tech.redirects':   { label: 'URL Routing',             issue: 'Some pages on the site send visitors through several steps before reaching the final destination. This slows things down and can confuse search engines about which page is the real one.', fix: 'Clean up the site so every page address goes directly to its destination without unnecessary stops along the way.', strength: 'Every page on the site loads directly, with no unnecessary stops that would slow things down or create confusion.' }
+      };
+
       var score = audit.overallScore != null ? audit.overallScore : 0;
       var displayUrl = audit.url.replace(/^https?:\/\//, '');
       var fixCount = audit.priorityFixes ? audit.priorityFixes.length : 0;
@@ -643,11 +710,11 @@
       document.getElementById('r-site-name').textContent = displayUrl;
       document.getElementById('r-meta').textContent = formatDate(audit.auditedAt) + ' · Prepared by Valeur Studio';
       document.getElementById('r-summary').innerHTML =
-        '<span>6 categories analyzed</span>' +
+        '<span>6 areas reviewed</span>' +
         '<span class="report-summary-dot">·</span>' +
-        '<span>' + fixCount + ' priority fix' + (fixCount === 1 ? '' : 'es') + ' identified</span>' +
+        '<span>' + fixCount + ' improvement' + (fixCount === 1 ? '' : 's') + ' to make</span>' +
         '<span class="report-summary-dot">·</span>' +
-        '<span>' + strengthCount + ' strength' + (strengthCount === 1 ? '' : 's') + ' noted</span>';
+        '<span>' + strengthCount + ' thing' + (strengthCount === 1 ? '' : 's') + ' already working</span>';
 
       // Score block
       var scoreEl = document.getElementById('r-score-number');
@@ -658,12 +725,12 @@
       badgeEl.className = 'score-badge ' + badgeClass(score);
 
       // Nudge
-      var nudgeText = 'A score of ' + score + ' means ';
-      if (score >= 80)      nudgeText += 'the site is performing well, but there are still opportunities to improve conversion and discoverability.';
-      else if (score >= 65) nudgeText += 'the site is functional and solid in several areas, but there are clear gaps worth addressing.';
-      else if (score >= 50) nudgeText += 'the site is functional but leaving real opportunity on the table.';
-      else                  nudgeText += 'the site has significant issues that are likely costing you customers.';
-      nudgeText += ' Every issue in this report is something we address in a website rebuild. If you want to talk through what we found, there is no cost to that conversation.';
+      var nudgeText = 'This report covers six areas of the site and shows what is working, what is holding things back, and what to address first. A score of ' + score + ' means ';
+      if (score >= 80)      nudgeText += 'the site is in good shape overall. The findings below show where there is still room to improve results and reach more of the right customers.';
+      else if (score >= 65) nudgeText += 'the site is solid in several areas but has clear gaps worth addressing. The findings below show what is holding it back from performing at its best.';
+      else if (score >= 50) nudgeText += 'the site is live and working, but there are real gaps affecting how visitors find it, what they do when they arrive, and whether they take action.';
+      else                  nudgeText += 'the site has significant problems that are likely costing the business customers. Visitors are arriving and leaving without taking action, and these findings explain why.';
+      nudgeText += ' Every finding here is something we address in a website build. If you want to talk through what we found, there is no cost to that conversation.';
       document.getElementById('r-nudge-body').textContent = nudgeText;
 
       // Category scores grid
@@ -689,7 +756,10 @@
       var issuesEl = document.getElementById('r-issues-list');
       if (audit.topIssues && audit.topIssues.length > 0) {
         issuesEl.innerHTML = audit.topIssues.map(function (issue) {
-          return '<li class="issue-item"><span class="issue-icon">✕</span>' + esc(issue.detail || issue.label) + '</li>';
+          var t = T[issue.id];
+          var label = t ? t.label : esc(issue.label);
+          var text  = t ? t.issue  : esc(issue.detail || issue.label);
+          return '<li class="issue-item"><span class="issue-icon">✕</span><span><strong class="issue-label">' + label + '</strong>' + text + '</span></li>';
         }).join('');
       } else {
         issuesEl.innerHTML = '<li class="issue-item" style="color:#9CA3AF;">No significant issues found.</li>';
@@ -699,8 +769,10 @@
       var workingEl = document.getElementById('r-working-list');
       if (audit.strengths && audit.strengths.length > 0) {
         workingEl.innerHTML = audit.strengths.map(function (item) {
-          var text = item.label + (item.detail ? ': ' + item.detail : '');
-          return '<li class="working-item"><span class="working-icon">✓</span>' + esc(text) + '</li>';
+          var t = T[item.id];
+          var label = t ? t.label    : esc(item.label);
+          var text  = t ? t.strength : esc(item.label + (item.detail ? ': ' + item.detail : ''));
+          return '<li class="working-item"><span class="working-icon">✓</span><span><strong class="working-label">' + label + '</strong>' + text + '</span></li>';
         }).join('');
       } else {
         workingEl.innerHTML = '<li class="working-item" style="color:#9CA3AF;">No full-score items found.</li>';
@@ -710,12 +782,18 @@
       var fixesEl = document.getElementById('r-fixes-list');
       if (audit.priorityFixes && audit.priorityFixes.length > 0) {
         fixesEl.innerHTML = audit.priorityFixes.map(function (item, i) {
-          var num = String(i + 1).padStart(2, '0');
-          var impact = priorityToImpact(item.priority);
+          var num      = String(i + 1).padStart(2, '0');
+          var impact   = priorityToImpact(item.priority);
           var badgeCls = impact === 'High' ? 'fix-badge-high' : 'fix-badge-medium';
+          var t        = T[item.id];
+          var category = t ? t.label : esc(item.label);
+          var fixText  = t ? t.fix   : esc(item.fix);
           return '<div class="fix-card">' +
             '<span class="fix-number">' + num + '</span>' +
-            '<p class="fix-text">' + esc(item.fix) + '</p>' +
+            '<div class="fix-content">' +
+            '<span class="fix-category">' + category + '</span>' +
+            '<p class="fix-text">' + fixText + '</p>' +
+            '</div>' +
             '<span class="fix-badge ' + badgeCls + '">' + impact + '</span>' +
             '</div>';
         }).join('');
