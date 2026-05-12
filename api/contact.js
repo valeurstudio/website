@@ -116,6 +116,9 @@ export default async function handler(req, res) {
       });
     }
 
+    // Forward submission to Valeur OS — awaited so it completes before function exits; errors handled internally
+    await notifyOSContactIngest({ name, email, business, service, description });
+
     return res.status(200).json({
       success: true,
       message: 'Your message has been sent. We\'ll be in touch soon.'
@@ -138,4 +141,49 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+// ─── Valeur OS ingest ─────────────────────────────────────────────────────────
+// Forwards completed Start a Project submissions to the Valeur OS ingest endpoint.
+// The browser never calls Valeur OS directly — this runs server-side only.
+// Failures are logged but never surfaced to the visitor.
+
+async function notifyOSContactIngest({ name, email, business, service, description }) {
+  const ingestUrl = process.env.CONTACT_INGEST_URL;
+  const secret    = process.env.AUDIT_INGEST_SECRET;
+
+  if (!ingestUrl || !secret) {
+    console.warn('[Contact ingest] Skipped — CONTACT_INGEST_URL or AUDIT_INGEST_SECRET not set');
+    return;
+  }
+
+  const payload = {
+    name,
+    email,
+    ...(business    ? { business_name: business    } : {}),
+    ...(service     ? { service                    } : {}),
+    ...(description ? { description               } : {}),
+  };
+
+  try {
+    const res = await fetch(ingestUrl, {
+      method:  'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${secret}`,
+      },
+      body:   JSON.stringify(payload),
+      signal: AbortSignal.timeout(10000),
+    });
+
+    if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      console.log('[Contact ingest] OK — lead_id:', data.lead_id ?? '?', '| contact_id:', data.contact_id ?? '?');
+    } else {
+      const text = await res.text().catch(() => '');
+      console.error(`[Contact ingest] Failed — status ${res.status}:`, text.slice(0, 200));
+    }
+  } catch (err) {
+    console.error('[Contact ingest] Error:', err?.message ?? err);
+  }
 }
