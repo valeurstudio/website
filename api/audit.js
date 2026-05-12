@@ -33,6 +33,9 @@ export default async function handler(req, res) {
     // Send lead notification email (awaited so it completes before function exits)
     await sendLeadEmail({ url, businessName, businessType, whatTheySell, targetCustomer, mainGoal, name, email, phone, notes }, audit);
 
+    // Forward submission to Valeur OS — awaited so it completes before function exits; errors handled internally
+    await notifyOSIngest({ url, businessName, businessType, whatTheySell, targetCustomer, mainGoal, name, email, phone, notes }, audit);
+
     return res.status(200).json({ success: true, audit });
 
   } catch (err) {
@@ -113,4 +116,61 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+// ─── Valeur OS ingest ─────────────────────────────────────────────────────────
+// Forwards completed audit submissions to the live Valeur OS ingest endpoint.
+// The browser never calls Valeur OS directly — this runs server-side only.
+// Failures are logged but never surfaced to the visitor.
+
+async function notifyOSIngest(lead, audit) {
+  const ingestUrl = process.env.VALEUR_OS_INGEST_URL;
+  const secret    = process.env.AUDIT_INGEST_SECRET;
+
+  if (!ingestUrl || !secret) {
+    console.warn('[OS ingest] Skipped — VALEUR_OS_INGEST_URL or AUDIT_INGEST_SECRET not set');
+    return;
+  }
+
+  const siteUrl      = (process.env.SITE_URL || '').replace(/\/$/, '');
+  const resultsUrl   = siteUrl ? `${siteUrl}/audit-results` : null;
+
+  const payload = {
+    website_url:           lead.url,
+    business_name:         lead.businessName,
+    name:                  lead.name,
+    email:                 lead.email,
+    ...(lead.businessType  ? { business_type:          lead.businessType  } : {}),
+    ...(lead.whatTheySell  ? { offering_summary:       lead.whatTheySell  } : {}),
+    ...(lead.targetCustomer? { target_customer:        lead.targetCustomer} : {}),
+    ...(lead.mainGoal      ? { primary_website_goal:   lead.mainGoal      } : {}),
+    ...(lead.notes         ? { extra_notes:            lead.notes         } : {}),
+    ...(lead.phone         ? { phone:                  lead.phone         } : {}),
+    ...(resultsUrl         ? { results_page_url:       resultsUrl         } : {}),
+    ...(audit.overallScore !== null && audit.overallScore !== undefined
+                           ? { audit_score:            audit.overallScore } : {}),
+    audit_result_data:     audit,
+  };
+
+  try {
+    const res = await fetch(ingestUrl, {
+      method:  'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${secret}`,
+      },
+      body:   JSON.stringify(payload),
+      signal: AbortSignal.timeout(10000),
+    });
+
+    if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      console.log('[OS ingest] OK — audit_request_id:', data.audit_request_id ?? '?', '| lead_id:', data.lead_id ?? '?');
+    } else {
+      const text = await res.text().catch(() => '');
+      console.error(`[OS ingest] Failed — status ${res.status}:`, text.slice(0, 200));
+    }
+  } catch (err) {
+    console.error('[OS ingest] Error:', err?.message ?? err);
+  }
 }
