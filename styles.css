@@ -1029,10 +1029,27 @@ ul {
 
 .footer-bottom {
   padding-top: var(--gap-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--gap-sm);
 }
 
 .footer-bottom p {
   font-size: 13px;
+}
+
+.footer-legal-link {
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+  transition: opacity var(--duration-fast) var(--ease);
+}
+
+.footer-legal-link:hover {
+  opacity: 1;
 }
 
 /* --- Contact Modal --- */
@@ -1224,6 +1241,16 @@ ul {
   text-align: center;
   margin-top: 16px;
   line-height: 1.5;
+}
+
+.form-footer-note a {
+  color: var(--neutral-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.form-footer-note a:hover {
+  color: var(--ink);
 }
 
 /* Success / Error States */
