@@ -55,6 +55,14 @@
       margin-top: 12px;
       line-height: 1.5;
     }
+    .form-trust a {
+      color: var(--neutral-600);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .form-trust a:hover {
+      color: var(--ink);
+    }
     .optional-label {
       color: var(--neutral-400);
       font-weight: 400;
@@ -181,9 +189,8 @@
 
           <div>
             <button type="submit" class="btn btn-primary form-submit" id="auditSubmit">Run My Audit →</button>
-            <p class="form-footer-note">To run the audit we look at your website's public pages, send your website address to Google's PageSpeed service, and send your business details and some of your page text to Anthropic's AI service to help score it. Your name, email and phone number are not sent to either. We also email your answers and result to our team. See our <a href="/privacy">Privacy Policy</a>.</p>
             <p class="form-error-msg" id="auditError" style="display:none; font-size:13px; color:#B44; margin-top:10px; line-height:1.5;"></p>
-            <p class="form-trust">Free to run. No account needed. Results shown immediately.</p>
+            <p class="form-trust">Free to use. No account needed. <a href="/privacy">Privacy Policy</a></p>
           </div>
 
         </form>
@@ -369,7 +376,7 @@
             Sending...
           </span>
         </button>
-        <p class="form-footer-note">By sending this form you agree that Valeur Studio may use your details to reply to you, prepare a proposal and follow up about your project. See our <a href="/privacy">Privacy Policy</a>.</p>
+        <p class="form-footer-note">We'll only use your details to get in touch about your project. <a href="/privacy">Privacy Policy</a></p>
       </form>
       <div class="form-success" id="formSuccess" style="display:none;">
         <div class="success-icon">
